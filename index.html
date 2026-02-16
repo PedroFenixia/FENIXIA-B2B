@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX B2B Prospector &mdash; Inteligencia comercial desde el registro mercantil</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="FENIX B2B Prospector: accede a +1 mill&oacute;n de empresas del BORME, subvenciones del BOE y licitaciones p&uacute;blicas. Prospecci&oacute;n inteligente con IA. Desde 0&euro;/mes.">
+<meta name="keywords" content="prospecci&oacute;n B2B, BORME, registro mercantil, lead scoring, inteligencia comercial, FENIX IA, subvenciones BOE, licitaciones">
+<meta name="author" content="FENIXIA SOLUTIONS S.L.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d9488">
+<link rel="canonical" href="https://b2b.fenixia.tech/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://b2b.fenixia.tech/">
+<meta property="og:title" content="FENIX B2B Prospector &mdash; Inteligencia comercial desde el registro mercantil">
+<meta property="og:description" content="Accede a +1M empresas del BORME. Subvenciones, licitaciones y scoring de solvencia. Desde 0&euro;/mes.">
+<meta property="og:site_name" content="FENIX B2B Prospector">
+<meta property="og:locale" content="es_ES">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FENIX B2B Prospector &mdash; Inteligencia comercial con IA">
+<meta name="twitter:description" content="+1M empresas del BORME. Subvenciones, licitaciones, scoring. Desde 0&euro;/mes.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--bg2:#f8fafb;--bg3:#f1f5f9;--card:#ffffff;
+  --teal:#0d9488;--teal-light:#14b8a6;--teal-pale:#ccfbf1;--teal-glow:rgba(13,148,136,.08);
+  --text:#0f172a;--text2:#334155;--text3:#64748b;--text4:#94a3b8;
+  --border:#e2e8f0;--border2:#cbd5e1;
+  --purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;
+  --emerald-grad:linear-gradient(135deg,#0d9488,#059669);
+  --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--text2);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none;transition:all .2s}
+a:hover{color:var(--teal-light)}
+::selection{background:var(--teal);color:#fff}
+img{max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.88);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid transparent;transition:all .3s}
+nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-brand{font-weight:800;font-size:1.15rem;color:var(--text);letter-spacing:.5px}
+.nav-brand em{font-style:normal;color:var(--teal)}
+.nav-tagline{font-size:.68rem;color:var(--text4);font-weight:500;border-left:1px solid var(--border);padding-left:.6rem;margin-left:.2rem;max-width:200px;line-height:1.3}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--text3);font-weight:500;font-size:.85rem;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-links .btn-login{padding:.5rem 1.2rem;border-radius:8px;border:1.5px solid var(--border2);font-weight:600;font-size:.82rem;color:var(--text2);transition:all .2s}
+.nav-links .btn-login:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-glow)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;font-size:.88rem;transition:all .2s;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.1px}
+.btn-primary{background:var(--emerald-grad);color:#fff !important;box-shadow:0 1px 3px rgba(13,148,136,.2),0 4px 12px rgba(13,148,136,.12)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.25),0 8px 24px rgba(13,148,136,.15);color:#fff !important}
+.btn-outline{background:transparent;color:var(--teal);border:1.5px solid var(--border2)}
+.btn-outline:hover{border-color:var(--teal);background:var(--teal-glow)}
+
+/* MOBILE MENU */
+.mobile-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:101}
+.mobile-menu{position:fixed;top:0;left:-100%;width:80%;max-width:320px;height:100vh;background:var(--bg);padding:5rem 2rem 2rem;transition:left .3s ease;z-index:99;box-shadow:4px 0 24px rgba(0,0,0,.08)}
+.mobile-menu.active{left:0}
+.mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(15,23,42,.4);opacity:0;visibility:hidden;transition:all .3s;z-index:98}
+.mobile-overlay.active{opacity:1;visibility:visible}
+.mobile-menu a{display:block;padding:.9rem 0;color:var(--text2);font-size:.95rem;font-weight:500;border-bottom:1px solid var(--border)}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu .btn{margin-top:1.5rem;width:100%;text-align:center;justify-content:center}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 2.5rem 5rem;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(13,148,136,.06) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.04) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:100px;background:var(--teal-pale);color:var(--teal);font-size:.78rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:.3px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:3.2rem;font-weight:900;line-height:1.1;color:var(--text);margin-bottom:1.2rem;letter-spacing:-.8px}
+.hero h1 .hl{background:var(--emerald-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:1.08rem;color:var(--text3);line-height:1.75;margin-bottom:2rem;max-width:480px}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-stats{display:flex;gap:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.hero-stats .stat{text-align:center}
+.hero-stats .stat .v{font-size:1.4rem;font-weight:800;font-family:var(--mono);color:var(--teal);letter-spacing:-1px}
+.hero-stats .stat .l{font-size:.65rem;color:var(--text4);text-transform:uppercase;letter-spacing:1px;margin-top:.1rem}
+
+/* HERO VISUAL */
+.hero-visual{position:relative}
+.dash-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);position:relative}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.dash-header span{font-size:.75rem;font-weight:600;color:var(--text4);text-transform:uppercase;letter-spacing:1px}
+.dash-header .live{display:flex;align-items:center;gap:.4rem;color:var(--green);font-size:.72rem;font-weight:600}
+.dash-header .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 1.5s infinite}
+.dash-lines{display:flex;flex-direction:column;gap:.6rem}
+.dash-line{display:flex;justify-content:space-between;align-items:center;padding:.5rem .7rem;border-radius:8px;font-size:.82rem;background:var(--bg2)}
+.dash-line .dl-label{color:var(--text3)}
+.dash-line .dl-val{font-weight:700;font-family:var(--mono);font-size:.85rem}
+.dl-val.green{color:var(--green)}.dl-val.teal{color:var(--teal)}.dl-val.red{color:var(--red)}.dl-val.purple{color:var(--purple)}.dl-val.orange{color:var(--orange)}
+.floating-card{position:absolute;background:var(--card);border-radius:10px;padding:.8rem 1rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08);font-size:.75rem;animation:float-up 6s ease-in-out infinite}
+.floating-card.fc1{top:-12px;right:-20px;animation-delay:0s}
+.floating-card.fc2{bottom:20px;left:-30px;animation-delay:3s}
+@keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fc-val{font-weight:800;font-family:var(--mono);font-size:1.1rem}
+.fc-val.green{color:var(--green)}.fc-val.teal{color:var(--teal)}.fc-val.purple{color:var(--purple)}
+
+/* SECTIONS */
+section{padding:6rem 2.5rem}
+.container{max-width:1140px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem;padding:.35rem .9rem;border-radius:6px;background:var(--teal-pale)}
+.stitle{font-size:2.4rem;font-weight:900;color:var(--text);line-height:1.15;margin-bottom:1rem;letter-spacing:-.5px}
+.sdesc{color:var(--text3);font-size:1rem;max-width:560px;line-height:1.75}
+.center{text-align:center}.center .sdesc{margin:0 auto}
+
+/* FEATURES GRID */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.feat-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .3s}
+.feat-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1);transform:translateY(-2px)}
+.feat-card-top{height:3px;margin:-2rem -2rem 1.5rem;border-radius:14px 14px 0 0}
+.feat-card:nth-child(1) .feat-card-top{background:var(--emerald-grad)}
+.feat-card:nth-child(2) .feat-card-top{background:linear-gradient(90deg,var(--green),#34d399)}
+.feat-card:nth-child(3) .feat-card-top{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.feat-card:nth-child(4) .feat-card-top{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.feat-card:nth-child(5) .feat-card-top{background:linear-gradient(90deg,#0d9488,#06b6d4)}
+.feat-card:nth-child(6) .feat-card-top{background:linear-gradient(90deg,var(--green),var(--teal))}
+.feat-ico{font-size:1.8rem;margin-bottom:.7rem}
+.feat-name{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
+.feat-desc{color:var(--text3);font-size:.88rem;line-height:1.6}
+
+/* HOW IT WORKS */
+.how-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.step{text-align:center;padding:1.5rem;position:relative}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--teal-pale);color:var(--teal);font-family:var(--mono);font-weight:800;font-size:1.2rem;margin-bottom:1rem}
+.step-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.step-desc{font-size:.82rem;color:var(--text3);line-height:1.6}
+.step-arrow{position:absolute;top:42px;right:-18px;color:var(--border2);font-size:1.2rem}
+
+/* DATA SOURCES */
+.ds-strip{display:flex;justify-content:center;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap}
+.ds-item{text-align:center;padding:1.5rem 2rem;border-radius:12px;background:var(--card);border:1px solid var(--border);transition:all .3s;min-width:140px}
+.ds-item:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(13,148,136,.08)}
+.ds-item .di-ico{margin-bottom:.6rem;display:flex;justify-content:center;color:var(--teal)}
+.ds-item .di-name{font-size:.85rem;font-weight:700;color:var(--text)}
+.ds-item .di-desc{font-size:.68rem;color:var(--text4);margin-top:.15rem}
+
+/* USE CASES */
+.uc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.uc-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);transition:all .3s}
+.uc-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1)}
+.uc-card-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.uc-card-ico{font-size:1.6rem}
+.uc-card-sector{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);background:var(--teal-pale);padding:.2rem .6rem;border-radius:4px}
+.uc-card h4{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+.uc-card p{font-size:.85rem;color:var(--text3);line-height:1.65;margin-bottom:.8rem}
+.uc-card .uc-result{padding-top:.7rem;border-top:1px solid var(--border);font-size:.78rem;font-weight:600;color:var(--green);display:flex;align-items:center;gap:.4rem}
+
+/* PRICING */
+#pricing{background:var(--bg2);border-top:1px solid var(--border)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.pr-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;transition:all .3s}
+.pr-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.pr-card.feat{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 8px 32px rgba(13,148,136,.1)}
+.pr-card.feat::before{content:'POPULAR';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--emerald-grad);color:#fff;font-size:.62rem;font-weight:700;padding:.25rem .9rem;border-radius:100px;letter-spacing:1.2px}
+.pr-name{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.4rem;color:var(--teal)}
+.pr-amt{display:flex;align-items:baseline;gap:.2rem;margin-bottom:.1rem}
+.pr-amt .cur{font-size:1.1rem;color:var(--text3);font-weight:600}
+.pr-amt .num{font-size:2.8rem;font-weight:900;color:var(--text);font-family:var(--mono);letter-spacing:-2px}
+.pr-amt .per{font-size:.8rem;color:var(--text4)}
+.pr-users{font-size:.8rem;color:var(--text4);margin-bottom:1.2rem}
+.pr-feats{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem}
+.pr-feats li{font-size:.84rem;color:var(--text3);display:flex;align-items:center;gap:.4rem}
+.pr-feats li::before{content:'\2713';color:var(--teal);font-weight:700}
+.pr-feats li.off{color:var(--text4)}
+.pr-feats li.off::before{content:'\2717';color:var(--text4)}
+
+/* COMPARISON */
+.cmp-tbl{width:100%;min-width:500px;margin-top:2rem;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.cmp-tbl th{background:var(--bg3);padding:.7rem 1rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--text4);text-align:left}
+.cmp-tbl td{padding:.6rem 1rem;font-size:.82rem;border-top:1px solid var(--border);color:var(--text2)}
+.cmp-tbl tr:last-child{background:var(--teal-pale)}
+.cmp-tbl tr:last-child td{color:var(--teal);font-weight:700}
+.cmp-tbl .x{color:var(--red);font-weight:600}
+.cmp-tbl .v{color:var(--green);font-weight:600}
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:1.5rem}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:2rem auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text);gap:1rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--text4);transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-q::after{content:'-'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.84rem;color:var(--text3);line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 0 1rem}
+
+/* TRUST STRIP */
+.trust-strip{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:1.5rem 0;margin:0 auto;max-width:700px}
+.trust-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:rgba(255,255,255,.5)}
+.trust-item strong{color:rgba(255,255,255,.8)}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.15),transparent 60%);pointer-events:none}
+.cta-sec .tag{background:rgba(13,148,136,.15);color:var(--teal-light)}
+.cta-sec .stitle{color:#fff}
+.cta-sec .sdesc{color:rgba(255,255,255,.6)}
+.cta-sec input,.cta-sec select{padding:.8rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-family:var(--font);font-size:.88rem;outline:none;transition:border .2s;width:100%}
+.cta-sec input:focus,.cta-sec select:focus{border-color:var(--teal-light)}
+.cta-sec input::placeholder{color:rgba(255,255,255,.35)}
+.cta-sec select{color:rgba(255,255,255,.5)}
+.cta-sec select option{background:#1e293b;color:#fff}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem}
+.ft-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.ft-brand{font-weight:700;font-size:.95rem;color:var(--text)}
+.ft-brand em{font-style:normal;color:var(--teal)}
+.ft-links{display:flex;gap:2rem}
+.ft-links a{color:var(--text3);font-size:.82rem}
+.ft-links a:hover{color:var(--teal)}
+.ft-legal{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;max-width:1140px;margin:.8rem auto 0}
+.ft-legal a{color:var(--text4);font-size:.72rem;transition:color .2s}
+.ft-legal a:hover{color:var(--teal)}
+.ft-copy{color:var(--text4);font-size:.72rem;text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);max-width:1140px;margin-left:auto;margin-right:auto}
+
+/* ANIMATIONS */
+.fi{opacity:0;transform:translateY(20px);transition:all .5s ease-out}
+.fi.vis{opacity:1;transform:translateY(0)}
+.s1{transition-delay:.07s}.s2{transition-delay:.14s}.s3{transition-delay:.21s}.s4{transition-delay:.28s}.s5{transition-delay:.35s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:2.4rem}
+  .hero .sub{margin:0 auto 2rem;font-size:1rem}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{display:none}
+  .feat-grid,.pr-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step-arrow{display:none}
+  .nav-links{display:none}
+  .nav-tagline{display:none}
+  .mobile-menu-btn{display:block}
+  .stitle{font-size:1.9rem}
+  .btn{min-height:44px}
+}
+
+@media(max-width:768px) and (min-width:601px){
+  nav{padding:1rem 2rem}
+  section{padding:4rem 2rem}
+  .hero{padding:6rem 2rem 4rem}
+  .hero h1{font-size:2.2rem}
+  .cta-sec input,.cta-sec select{font-size:16px}
+}
+
+@media(max-width:600px){
+  .mobile-menu-btn{display:block}
+  nav{padding:.8rem 1.2rem}
+  .nav-brand{font-size:1rem}
+  .nav-tagline{display:none}
+  section{padding:3rem 1.2rem}
+  .hero{padding:5rem 1.2rem 2.5rem;min-height:auto}
+  .hero h1{font-size:1.75rem;line-height:1.2}
+  .hero .sub{font-size:.95rem}
+  .stitle{font-size:1.4rem}
+  .sdesc{font-size:.88rem}
+  .feat-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .ds-strip{gap:.8rem;flex-direction:column}
+  .ds-item{min-width:auto;width:100%;padding:1rem}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .btn{padding:.85rem 1.4rem;font-size:.88rem;min-height:44px}
+  .hero-ctas{flex-direction:column;width:100%}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .cta-sec input,.cta-sec select{font-size:16px;width:100%}
+  button[type="submit"]{min-height:48px}
+  .ft-links{flex-direction:column;gap:.8rem;text-align:center}
+  .ft-inner{flex-direction:column;text-align:center}
+  footer{padding:1.5rem 1.2rem 1rem}
+  .table-wrapper{border-radius:8px;-webkit-overflow-scrolling:touch}
+  .cmp-tbl{min-width:auto}
+  .cmp-tbl th,.cmp-tbl td{padding:.4rem .35rem;font-size:.65rem;white-space:nowrap}
+  .faq-q{padding:1.2rem 0}
+}
+</style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FENIX B2B Prospector",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "0",
+    "highPrice": "79"
+  },
+  "description": "Plataforma de inteligencia comercial B2B. +1M empresas del BORME, subvenciones del BOE y licitaciones p\u00fablicas.",
+  "provider": {
+    "@type": "Organization",
+    "name": "FENIXIA SOLUTIONS S.L.",
+    "url": "https://b2b.fenixia.tech",
+    "taxID": "B22739668",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle La Paz 83",
+      "addressLocality": "Elx/Elche",
+      "addressRegion": "Alicante",
+      "postalCode": "03320",
+      "addressCountry": "ES"
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-brand"><img src="logo.png?v=2" alt="FENIX IA" style="height:44px;vertical-align:middle;margin-right:6px;opacity:.7;filter:brightness(1.1)">FENIX <em>B2B</em></span>
+    <span class="nav-tagline">Inteligencia comercial con IA</span>
+  </a>
+  <div class="nav-links">
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#como-funciona">C&oacute;mo funciona</a>
+    <a href="pricing.html">Precios</a>
+    <a href="#casos-uso">Casos de uso</a>
+    <a href="login.html" class="btn-login">Acceder</a>
+    <a href="register.html" class="btn btn-primary">Registrarse gratis &rarr;</a>
+  </div>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Men&uacute;">&#9776;</button>
+</nav>
+
+<div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu">
+  <a href="#funcionalidades" onclick="toggleMobileMenu()">Funcionalidades</a>
+  <a href="#como-funciona" onclick="toggleMobileMenu()">C&oacute;mo funciona</a>
+  <a href="pricing.html" onclick="toggleMobileMenu()">Precios</a>
+  <a href="#casos-uso" onclick="toggleMobileMenu()">Casos de uso</a>
+  <a href="login.html" onclick="toggleMobileMenu()">Acceder</a>
+  <a href="register.html" class="btn btn-primary" onclick="toggleMobileMenu()">Registrarse gratis &rarr;</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> +1.000.000 empresas del BORME disponibles</div>
+      <h1>Encuentra tu pr&oacute;ximo cliente <span class="hl">antes que tu competencia</span></h1>
+      <p class="sub">FENIX B2B Prospector analiza el Registro Mercantil, subvenciones del BOE y licitaciones p&uacute;blicas con IA para que encuentres empresas que necesitan lo que vendes. Sin llamadas en fr&iacute;o. Sin bases de datos obsoletas. Solo datos oficiales actualizados a diario</p>
+      <div class="hero-ctas">
+        <a href="register.html" class="btn btn-primary">Empezar gratis &rarr;</a>
+        <a href="#como-funciona" class="btn btn-outline">Ver c&oacute;mo funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="v">+1M</div><div class="l">Empresas</div></div>
+        <div class="stat"><div class="v">0&euro;</div><div class="l">Plan gratuito</div></div>
+        <div class="stat"><div class="v">&lt;24h</div><div class="l">Datos actualizados</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card fc1">
+        <div class="fc-val green">+2.200</div>
+        <div class="fc-lbl">Empresas nuevas / d&iacute;a</div>
+      </div>
+      <div class="floating-card fc2">
+        <div class="fc-val purple">Score 87</div>
+        <div class="fc-lbl">Solvencia media</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-header">
+          <span>FENIX B2B Prospector</span>
+          <div class="live">Datos actualizados</div>
+        </div>
+        <div class="dash-lines">
+          <div class="dash-line"><span class="dl-label">Empresas registradas</span><span class="dl-val teal">1.247.830</span></div>
+          <div class="dash-line"><span class="dl-label">Actos mercantiles</span><span class="dl-val green">3.891.204</span></div>
+          <div class="dash-line"><span class="dl-label">Subvenciones activas</span><span class="dl-val purple">342</span></div>
+          <div class="dash-line"><span class="dl-label">Licitaciones abiertas</span><span class="dl-val orange">1.287</span></div>
+          <div class="dash-line"><span class="dl-label">&Uacute;ltima actualizaci&oacute;n</span><span class="dl-val teal">Hoy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades">
+  <div class="container">
+    <span class="tag">Funcionalidades</span>
+    <h2 class="stitle">Todo lo que necesitas para encontrar y cualificar clientes B2B</h2>
+    <p class="sdesc">Datos oficiales del BORME actualizados a diario, cruzados con subvenciones y licitaciones. Sin intermediarios, sin datos comprados</p>
+    <div class="feat-grid">
+      <div class="feat-card fi">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128269;</div>
+        <div class="feat-name">B&uacute;squeda avanzada de empresas</div>
+        <p class="feat-desc">Filtra por nombre, CIF, provincia, forma jur&iacute;dica, sector CNAE, fecha de constituci&oacute;n y scoring de solvencia. Encuentra exactamente el perfil que buscas</p>
+      </div>
+      <div class="feat-card fi s1">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128200;</div>
+        <div class="feat-name">Scoring de solvencia</div>
+        <p class="feat-desc">Cada empresa recibe una puntuaci&oacute;n basada en su actividad mercantil, antig&uuml;edad, capital social y actos registrados. Prioriza los leads m&aacute;s s&oacute;lidos</p>
+      </div>
+      <div class="feat-card fi s2">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#127942;</div>
+        <div class="feat-name">Subvenciones y licitaciones</div>
+        <p class="feat-desc">Accede a subvenciones del BOE y licitaciones de la Plataforma de Contrataci&oacute;n P&uacute;blica. Cruza oportunidades con empresas de tu cartera</p>
+      </div>
+      <div class="feat-card fi s3">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128276;</div>
+        <div class="feat-name">Vigilancia y alertas</div>
+        <p class="feat-desc">A&ntilde;ade empresas a tu lista de vigilancia. Recibe alertas cuando publiquen nuevos actos mercantiles, cambien administradores o modifiquen su capital</p>
+      </div>
+      <div class="feat-card fi s4">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128230;</div>
+        <div class="feat-name">Exportaci&oacute;n a CRM</div>
+        <p class="feat-desc">Exporta resultados en CSV y Excel para importar directamente a Salesforce, HubSpot, Pipedrive o cualquier CRM. Datos limpios y normalizados</p>
+      </div>
+      <div class="feat-card fi s5">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128218;</div>
+        <div class="feat-name">Ficha completa de empresa</div>
+        <p class="feat-desc">Historial de actos mercantiles, administradores, objeto social, forma jur&iacute;dica, fecha de constituci&oacute;n y datos de contacto enriquecidos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how-section" id="como-funciona">
+  <div class="container center">
+    <span class="tag">C&oacute;mo funciona</span>
+    <h2 class="stitle">De dato p&uacute;blico a oportunidad comercial en 4 pasos</h2>
+    <p class="sdesc" style="margin:0 auto">Cada d&iacute;a procesamos el BORME completo y lo cruzamos con subvenciones y licitaciones para que t&uacute; solo tengas que buscar</p>
+    <div class="steps">
+      <div class="step fi">
+        <div class="step-num">1</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">Ingesta diaria</div>
+        <p class="step-desc">Cada ma&ntilde;ana descargamos y procesamos el BORME completo: ~2.200 empresas y ~3.800 actos mercantiles nuevos</p>
+      </div>
+      <div class="step fi s1">
+        <div class="step-num">2</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">IA extrae y estructura</div>
+        <p class="step-desc">La IA extrae nombre, CIF, administradores, objeto social, capital y los normaliza en fichas estructuradas con scoring</p>
+      </div>
+      <div class="step fi s2">
+        <div class="step-num">3</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">T&uacute; buscas y filtras</div>
+        <p class="step-desc">Usa filtros avanzados para encontrar empresas que encajen con tu cliente ideal. Ordena por scoring, fecha o sector</p>
+      </div>
+      <div class="step fi s3">
+        <div class="step-num">4</div>
+        <div class="step-title">Exporta y contacta</div>
+        <p class="step-desc">Exporta a CSV/Excel para tu CRM. A&ntilde;ade a vigilancia las que m&aacute;s te interesen y recibe alertas de cambios</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUENTES DE DATOS -->
+<section style="padding:4.5rem 2.5rem">
+  <div class="container center">
+    <span class="tag">Fuentes de datos</span>
+    <h2 class="stitle">Datos oficiales. Actualizados a diario. Sin intermediarios</h2>
+    <p class="sdesc" style="margin:0 auto">Toda la informaci&oacute;n proviene directamente de fuentes oficiales del Estado espa&ntilde;ol</p>
+    <div class="ds-strip">
+      <div class="ds-item fi"><div class="di-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div><div class="di-name">BORME</div><div class="di-desc">Registro Mercantil diario</div></div>
+      <div class="ds-item fi s1"><div class="di-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="di-name">BOE</div><div class="di-desc">Subvenciones y ayudas</div></div>
+      <div class="ds-item fi s2"><div class="di-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="di-name">PLACSP</div><div class="di-desc">Licitaciones p&uacute;blicas</div></div>
+      <div class="ds-item fi s3"><div class="di-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="di-name">Enriquecimiento</div><div class="di-desc">Datos de contacto y web</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE USO -->
+<section id="casos-uso" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container">
+    <span class="tag">Casos de uso</span>
+    <h2 class="stitle">C&oacute;mo lo usan nuestros clientes</h2>
+    <p class="sdesc">Equipos comerciales, consultoras y agencias usan FENIX B2B Prospector para encontrar oportunidades que antes les costaba semanas localizar</p>
+    <div class="uc-grid">
+      <div class="uc-card fi">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128188;</span>
+          <span class="uc-card-sector">Consultor&iacute;a</span>
+        </div>
+        <h4>Detectar empresas reci&eacute;n constituidas</h4>
+        <p>Una consultor&iacute;a fiscal busca SL constituidas en los &uacute;ltimos 30 d&iacute;as en Madrid con capital superior a 10.000&euro;. Con FENIX filtra por fecha, forma jur&iacute;dica y provincia. Resultado: 340 empresas listas para contactar y ofrecer servicios de contabilidad</p>
+        <div class="uc-result">&#8594; 340 leads cualificados en menos de 2 minutos</div>
+      </div>
+      <div class="uc-card fi s1">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128176;</span>
+          <span class="uc-card-sector">Banca</span>
+        </div>
+        <h4>Cualificar empresas por solvencia</h4>
+        <p>Un banco necesita identificar PYMEs con buena solvencia para ofrecer l&iacute;neas de cr&eacute;dito. Filtra empresas con score superior a 70, m&aacute;s de 3 a&ntilde;os de antig&uuml;edad y sector servicios. Exporta la lista directamente a su CRM con los datos de contacto</p>
+        <div class="uc-result">&#8594; Cartera precualificada sin an&aacute;lisis manual</div>
+      </div>
+      <div class="uc-card fi s2">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#127891;</span>
+          <span class="uc-card-sector">Formaci&oacute;n</span>
+        </div>
+        <h4>Empresas que reciben subvenciones</h4>
+        <p>Una empresa de formaci&oacute;n bonificada busca PYMEs que han recibido subvenciones de FUNDAE o del BOE. Con FENIX cruza la base de empresas con las subvenciones activas y genera una lista de potenciales clientes que ya tienen presupuesto asignado</p>
+        <div class="uc-result">&#8594; Leads con presupuesto confirmado para formaci&oacute;n</div>
+      </div>
+      <div class="uc-card fi s3">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128187;</span>
+          <span class="uc-card-sector">Tecnolog&iacute;a</span>
+        </div>
+        <h4>Vigilar cambios de administraci&oacute;n</h4>
+        <p>Una empresa de software vigila 50 cuentas clave. Cuando un cliente cambia de administrador, FENIX env&iacute;a una alerta. El equipo comercial contacta al nuevo decisor antes que la competencia, con todo el historial de la relaci&oacute;n</p>
+        <div class="uc-result">&#8594; Retenci&oacute;n proactiva ante cambios de decisi&oacute;n</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <span class="tag">Precios</span>
+    <h2 class="stitle">Empieza gratis. Escala cuando lo necesites</h2>
+    <p class="sdesc">Todos los planes incluyen acceso a +1M empresas del BORME, subvenciones y licitaciones. Sin permanencia</p>
+    <div class="pr-grid">
+      <div class="pr-card fi">
+        <div class="pr-name">Free</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">0</span><span class="per">/mes</span></div>
+        <div class="pr-users">50 b&uacute;squedas/mes &bull; 5 exportaciones</div>
+        <ul class="pr-feats">
+          <li>B&uacute;squeda avanzada de empresas</li>
+          <li>Ficha completa de empresa</li>
+          <li>10 empresas en vigilancia</li>
+          <li class="off">Scoring de solvencia</li>
+          <li class="off">Enriquecimiento de datos</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline" style="width:100%;justify-content:center">Empezar gratis &rarr;</a>
+      </div>
+      <div class="pr-card feat fi s1">
+        <div class="pr-name" style="color:var(--purple)">Pro</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">29</span><span class="per">/mes</span></div>
+        <div class="pr-users">B&uacute;squedas ilimitadas &bull; 50 exportaciones</div>
+        <ul class="pr-feats">
+          <li>Todo de Free</li>
+          <li>B&uacute;squedas ilimitadas</li>
+          <li>100 empresas en vigilancia</li>
+          <li>Scoring de solvencia</li>
+          <li>Enriquecimiento de datos</li>
+        </ul>
+        <a href="register.html" class="btn btn-primary" style="width:100%;justify-content:center">Empezar con Pro &rarr;</a>
+      </div>
+      <div class="pr-card fi s2">
+        <div class="pr-name" style="color:var(--green)">Enterprise</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">79</span><span class="per">/mes</span></div>
+        <div class="pr-users">Todo ilimitado &bull; Acceso API</div>
+        <ul class="pr-feats">
+          <li>Todo de Pro</li>
+          <li>Exportaciones ilimitadas</li>
+          <li>Watchlist ilimitada</li>
+          <li>Scoring + enriquecimiento</li>
+          <li>Acceso API REST</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline" style="width:100%;justify-content:center">Empezar con Enterprise &rarr;</a>
+      </div>
+    </div>
+    <p style="color:var(--text4);font-size:.75rem;margin-top:1.5rem;text-align:center">Cancela cuando quieras. Sin permanencia. Pagos seguros con Stripe</p>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section>
+  <div class="container center">
+    <span class="tag">Comparativa</span>
+    <h2 class="stitle">FENIX Prospector vs alternativas</h2>
+    <p class="sdesc" style="margin:0 auto 1.5rem">Datos oficiales, actualizados a diario y a una fracci&oacute;n del coste de las alternativas</p>
+    <div class="table-wrapper">
+      <table class="cmp-tbl">
+        <thead><tr><th>Plataforma</th><th>&euro;/mes</th><th>Empresas</th><th>BORME diario</th><th>Subvenciones</th><th>Licitaciones</th><th>Scoring</th><th>Exportaci&oacute;n</th></tr></thead>
+        <tbody>
+          <tr><td>Axesor</td><td>~200&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+          <tr><td>Informa D&amp;B</td><td>~300&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+          <tr><td>eInforma</td><td>~150&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="v">&#10003;</td><td class="x">&#10007;</td></tr>
+          <tr><td>Apollo / ZoomInfo</td><td>~500&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+          <tr><td><strong>FENIX Prospector</strong></td><td><strong>Desde 0&euro;</strong></td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container">
+    <span class="tag">Preguntas frecuentes</span>
+    <h2 class="stitle">Resolvemos tus dudas</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;De d&oacute;nde salen los datos?</div><div class="faq-a"><p>Directamente del BORME (Bolet&iacute;n Oficial del Registro Mercantil), el BOE (Bolet&iacute;n Oficial del Estado) y la Plataforma de Contrataci&oacute;n del Sector P&uacute;blico. Son datos oficiales y p&uacute;blicos, actualizados cada d&iacute;a</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Con qu&eacute; frecuencia se actualizan?</div><div class="faq-a"><p>A diario. Cada ma&ntilde;ana procesamos el BORME del d&iacute;a anterior completo: aproximadamente 2.200 empresas y 3.800 actos mercantiles nuevos por jornada</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Puedo exportar los datos a mi CRM?</div><div class="faq-a"><p>S&iacute;. Exporta en CSV o Excel con todos los campos: nombre, CIF, direcci&oacute;n, administradores, objeto social, scoring, datos de contacto. Compatible con Salesforce, HubSpot, Pipedrive y cualquier CRM que acepte CSV</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Qu&eacute; incluye el plan gratuito?</div><div class="faq-a"><p>50 b&uacute;squedas al mes, 5 exportaciones, 10 empresas en vigilancia y acceso completo a la base de datos. Sin tarjeta de cr&eacute;dito, sin l&iacute;mite de tiempo</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Cumple con el RGPD?</div><div class="faq-a"><p>S&iacute;. Todos los datos son p&uacute;blicos (BORME, BOE). Infraestructura en la UE. Encriptaci&oacute;n AES-256. Cumplimiento total del RGPD. DPA disponible bajo petici&oacute;n</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Tienen API?</div><div class="faq-a"><p>S&iacute;, en el plan Enterprise. API REST completa con documentaci&oacute;n. B&uacute;squeda, detalle de empresa, actos mercantiles, subvenciones y licitaciones. Webhooks para alertas de vigilancia</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contacto">
+  <div class="container center">
+    <span class="tag">Empieza hoy</span>
+    <h2 class="stitle">+1 mill&oacute;n de empresas te esperan.<br>&iquest;Cu&aacute;ntas encajan con tu cliente ideal?</h2>
+    <p class="sdesc" style="margin:1rem auto 2.5rem">Crea tu cuenta gratuita en 30 segundos. Sin tarjeta de cr&eacute;dito. Sin permanencia</p>
+    <div class="trust-strip">
+      <div class="trust-item"><strong>&#10003;</strong> Plan gratuito para siempre</div>
+      <div class="trust-item"><strong>&#10003;</strong> Sin tarjeta de cr&eacute;dito</div>
+      <div class="trust-item"><strong>&#10003;</strong> Cumple RGPD</div>
+      <div class="trust-item"><strong>&#10003;</strong> Cancela cuando quieras</div>
+    </div>
+    <div style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;align-items:center">
+      <a href="register.html" class="btn btn-primary" style="padding:1rem 2.5rem;font-size:1rem;width:100%;justify-content:center">Crear cuenta gratuita &rarr;</a>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.5)">&iquest;Ya tienes cuenta? <a href="login.html" style="color:var(--teal-light);font-weight:600">Inicia sesi&oacute;n</a></p>
+    </div>
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)">
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1rem">&iquest;Prefieres una demo personalizada?</p>
+      <form id="demo-form" style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:.85rem" onsubmit="submitForm(event)">
+        <input type="text" name="name" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Email corporativo" required>
+        <input type="text" name="company" placeholder="Empresa">
+        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;text-align:left">
+          <input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:var(--teal);flex-shrink:0;width:16px;height:16px">
+          <span style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5">He le&iacute;do y acepto la <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:var(--teal-light);text-decoration:underline">Pol&iacute;tica de Privacidad</a> y consiento el tratamiento de mis datos para gestionar mi solicitud</span>
+        </label>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar demo gratuita &rarr;</button>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:left">Responsable: FENIXIA SOLUTIONS S.L. (CIF: B22739668). Finalidad: gestionar tu solicitud y contactarte para la demo. Base jur&iacute;dica: consentimiento del interesado (art. 6.1.a RGPD). Derechos: acceso, rectificaci&oacute;n, supresi&oacute;n, oposici&oacute;n, portabilidad y limitaci&oacute;n escribiendo a <a href="mailto:privacidad@fenixia.tech" style="color:rgba(255,255,255,.5)">privacidad@fenixia.tech</a>. M&aacute;s info en <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:rgba(255,255,255,.5)">Pol&iacute;tica de Privacidad</a></p>
+      </form>
+      <div id="ok" style="display:none;padding:1.8rem;background:rgba(13,148,136,.1);border-radius:10px;border:1px solid rgba(13,148,136,.2);max-width:460px;margin:1rem auto 0">
+        <p style="font-size:1.2rem;font-weight:700;color:var(--teal-light);margin-bottom:.4rem">&#10003; Recibido</p>
+        <p style="color:rgba(255,255,255,.7);font-size:.92rem">Te contactaremos en menos de 24 horas para agendar tu demo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-brand"><img src="logo.png?v=2" alt="FENIX IA" style="height:32px;vertical-align:middle;margin-right:5px;opacity:.55;filter:brightness(1.1)">FENIX <em>IA</em></div>
+    <div class="ft-links">
+      <a href="index.html">Inicio</a>
+      <a href="pricing.html">Precios</a>
+      <a href="login.html">Acceder</a>
+      <a href="register.html">Registrarse</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+  <div class="ft-legal">
+    <a href="https://www.fenixia.tech/terminos" target="_blank">T&eacute;rminos y Condiciones</a>
+    <a href="https://www.fenixia.tech/privacidad" target="_blank">Pol&iacute;tica de Privacidad</a>
+    <a href="https://www.fenixia.tech/cookies" target="_blank">Pol&iacute;tica de Cookies</a>
+  </div>
+  <div class="ft-copy">&copy; 2026 FENIXIA SOLUTIONS S.L. &mdash; CIF: B22739668 &mdash; C/ La Paz 83, 03320 Elx/Elche (Alicante) &mdash; <a href="mailto:info@fenixia.tech" style="color:var(--text4)">info@fenixia.tech</a></div>
+</footer>
+
+<script>
+const n=document.getElementById('navbar');
+window.addEventListener('scroll',()=>n.classList.toggle('scrolled',scrollY>50));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+function toggleMobileMenu(){
+  document.querySelector('.mobile-menu').classList.toggle('active');
+  document.querySelector('.mobile-overlay').classList.toggle('active');
+  document.body.style.overflow=document.querySelector('.mobile-menu').classList.contains('active')?'hidden':'';
+}
+
+async function submitForm(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('button[type="submit"]');
+  btn.textContent='Enviando...';btn.disabled=true;
+  const data={
+    name:form.querySelector('[name="name"]').value,
+    email:form.querySelector('[name="email"]').value,
+    company:form.querySelector('[name="company"]').value,
+    source:'b2b-prospect-landing',
+    privacy_accepted:form.querySelector('[name="privacy"]').checked,
+    privacy_accepted_at:new Date().toISOString()
+  };
+  try{
+    await fetch('https://api.fenixia.tech/leads',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+  }catch(err){console.warn('Lead submit:',err.message)}
+  form.style.display='none';
+  document.getElementById('ok').style.display='block';
+}
+</script>
+</body>
+</html>

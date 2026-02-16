@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - FENIX B2B Prospector</title>
+    <meta name="description" content="Crea tu cuenta gratuita en FENIX B2B Prospector. Inteligencia comercial para empresas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #0d9488;
+            --teal-light: #14b8a6;
+            --teal-pale: #ccfbf1;
+            --teal-dark: #059669;
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --bg: #111827;
+            --card: #1f2937;
+            --card-border: rgba(55, 65, 81, .5);
+            --input-bg: rgba(55, 65, 81, .5);
+            --input-border: #4b5563;
+            --text: #fff;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --text-faint: #4b5563;
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -.01em;
+        }
+
+        ::selection {
+            background: var(--teal);
+            color: #fff;
+        }
+
+        a {
+            color: var(--teal-light);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        a:hover {
+            color: var(--teal-pale);
+        }
+
+        /* ---- Layout ---- */
+
+        .page-center {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        /* ---- Brand header ---- */
+
+        .brand {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .brand img {
+            height: 40px;
+            opacity: .7;
+            filter: brightness(1.1);
+            margin-bottom: .75rem;
+        }
+
+        .brand h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--text);
+        }
+
+        .brand h1 span {
+            color: var(--teal-light);
+        }
+
+        .brand p {
+            color: var(--text-muted);
+            font-size: .875rem;
+            margin-top: .5rem;
+        }
+
+        /* ---- Card ---- */
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow:
+                0 4px 24px rgba(0,0,0,.25),
+                0 1px 3px rgba(0,0,0,.15);
+        }
+
+        /* ---- Form ---- */
+
+        .form-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 6px;
+        }
+
+        .field input[type="text"],
+        .field input[type="email"],
+        .field input[type="tel"],
+        .field input[type="password"] {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: var(--radius);
+            padding: .75rem 1rem;
+            font-size: .875rem;
+            font-family: var(--font);
+            color: var(--text);
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .field input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .field input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 2px rgba(13,148,136,.25);
+        }
+
+        /* ---- Privacy checkbox ---- */
+
+        .privacy {
+            display: flex;
+            align-items: flex-start;
+            gap: .625rem;
+            margin-top: .25rem;
+        }
+
+        .privacy input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            accent-color: var(--teal);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .privacy label {
+            font-size: .8125rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1.4;
+            text-transform: none;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .privacy label a {
+            font-weight: 600;
+        }
+
+        /* ---- Submit button ---- */
+
+        .btn-submit {
+            width: 100%;
+            padding: .8125rem;
+            margin-top: .5rem;
+            background: linear-gradient(135deg, #0d9488, #059669);
+            color: #fff;
+            font-family: var(--font);
+            font-size: .875rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s, opacity .2s;
+            box-shadow: 0 2px 16px rgba(13,148,136,.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 28px rgba(13,148,136,.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ---- Success message ---- */
+
+        .success-msg {
+            display: none;
+            background: rgba(13,148,136,.12);
+            border: 1px solid rgba(13,148,136,.3);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success-msg p {
+            font-size: .875rem;
+            color: var(--teal-pale);
+            line-height: 1.5;
+        }
+
+        .success-msg .icon {
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+        }
+
+        .success-msg.visible {
+            display: block;
+            animation: fadeSlide .4s ease;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- Error message ---- */
+
+        .error-msg {
+            display: none;
+            background: rgba(220,38,38,.1);
+            border: 1px solid rgba(220,38,38,.3);
+            border-radius: var(--radius);
+            padding: .75rem 1rem;
+            margin-bottom: 1rem;
+            font-size: .8125rem;
+            color: #fca5a5;
+            font-weight: 500;
+        }
+
+        .error-msg.visible {
+            display: block;
+            animation: fadeSlide .3s ease;
+        }
+
+        /* ---- Login link ---- */
+
+        .login-link {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: .875rem;
+            color: var(--text-dim);
+        }
+
+        .login-link a {
+            font-weight: 600;
+        }
+
+        /* ---- Plan badge ---- */
+
+        .plan-badge {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .plan-badge .badge {
+            display: inline-block;
+            background: rgba(13,148,136,.08);
+            border: 1px solid rgba(13,148,136,.2);
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            font-size: .75rem;
+            color: var(--teal-light);
+            font-weight: 500;
+            letter-spacing: .01em;
+        }
+
+        .plan-badge .badge strong {
+            font-weight: 700;
+            color: var(--teal-pale);
+        }
+
+        /* ---- Footer ---- */
+
+        footer {
+            padding: 2rem 1.5rem;
+        }
+
+        .footer-inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .75rem;
+        }
+
+        .footer-links a {
+            font-size: .75rem;
+            color: var(--text-dim);
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-muted);
+        }
+
+        .footer-links .sep {
+            width: 1px;
+            height: 12px;
+            background: var(--text-faint);
+            opacity: .4;
+        }
+
+        .footer-copy {
+            text-align: center;
+            font-size: .6875rem;
+            color: var(--text-faint);
+            line-height: 1.6;
+        }
+
+        .footer-back {
+            display: block;
+            text-align: center;
+            margin-top: .75rem;
+            font-size: .75rem;
+            color: var(--text-dim);
+        }
+
+        .footer-back:hover {
+            color: var(--teal-light);
+        }
+
+        /* ---- Responsive ---- */
+
+        @media (max-width: 600px) {
+            .form-row-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .brand h1 {
+                font-size: 1.25rem;
+            }
+
+            .wrapper {
+                max-width: 100%;
+            }
+
+            .footer-links {
+                gap: .625rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-center">
+        <div class="wrapper">
+
+            <!-- Brand -->
+            <div class="brand">
+                <img src="logo.png?v=2" alt="FENIX IA" style="height:40px;opacity:.7;filter:brightness(1.1)">
+                <h1><span>FENIX</span> <strong>B2B</strong> Prospector</h1>
+                <p>Crea tu cuenta gratuita</p>
+            </div>
+
+            <!-- Card -->
+            <div class="card">
+
+                <div id="errorBox" class="error-msg" role="alert"></div>
+
+                <form id="registerForm" novalidate>
+                    <div class="form-grid">
+
+                        <!-- Nombre completo -->
+                        <div class="field">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre completo">
+                        </div>
+
+                        <!-- Email + Empresa -->
+                        <div class="form-row-2">
+                            <div class="field">
+                                <label for="email">Email corporativo *</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="tu@empresa.com">
+                            </div>
+                            <div class="field">
+                                <label for="empresa">Nombre de empresa *</label>
+                                <input type="text" id="empresa" name="empresa" required autocomplete="organization" placeholder="Tu empresa S.L.">
+                            </div>
+                        </div>
+
+                        <!-- CIF + Telefono -->
+                        <div class="form-row-2">
+                            <div class="field">
+                                <label for="cif">CIF</label>
+                                <input type="text" id="cif" name="cif" pattern="[A-Za-z]\d{8}|\d{8}[A-Za-z]" placeholder="B12345678" maxlength="9" autocomplete="off" style="text-transform:uppercase;">
+                            </div>
+                            <div class="field">
+                                <label for="telefono">Telefono</label>
+                                <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="+34 600 123 456">
+                            </div>
+                        </div>
+
+                        <!-- Passwords -->
+                        <div class="form-row-2">
+                            <div class="field">
+                                <label for="password">Contrasena *</label>
+                                <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password" placeholder="Min. 8 caracteres">
+                            </div>
+                            <div class="field">
+                                <label for="password2">Repetir contrasena *</label>
+                                <input type="password" id="password2" name="password2" required minlength="8" autocomplete="new-password" placeholder="Repite contrasena">
+                            </div>
+                        </div>
+
+                        <!-- Privacy -->
+                        <div class="privacy">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">He leido y acepto la <a href="https://www.fenixia.tech/privacidad" target="_blank" rel="noopener">Politica de Privacidad</a></label>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn-submit">Crear cuenta gratuita</button>
+                    </div>
+                </form>
+
+                <!-- Success message (hidden by default) -->
+                <div id="successMsg" class="success-msg" role="status">
+                    <div class="icon">&#10003;</div>
+                    <p>Plataforma en fase de lanzamiento.<br>Te notificaremos en <strong id="successEmail"></strong> cuando este disponible.</p>
+                </div>
+
+                <p class="login-link">&iquest;Ya tienes cuenta? <a href="login.html">Inicia sesion</a></p>
+            </div>
+
+            <!-- Plan badge -->
+            <div class="plan-badge">
+                <span class="badge"><strong>Free:</strong>&ensp;50 busquedas/mes &middot; 5 exportaciones &middot; 10 empresas en vigilancia</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="https://www.fenixia.tech" target="_blank" rel="noopener">fenixia.tech</a>
+                <span class="sep"></span>
+                <a href="mailto:info@fenixia.tech">info@fenixia.tech</a>
+                <span class="sep"></span>
+                <a href="https://www.fenixia.tech/terminos" target="_blank" rel="noopener">Terminos</a>
+                <span class="sep"></span>
+                <a href="https://www.fenixia.tech/privacidad" target="_blank" rel="noopener">Privacidad</a>
+                <span class="sep"></span>
+                <a href="https://www.fenixia.tech/cookies" target="_blank" rel="noopener">Cookies</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 FENIXIA SOLUTIONS S.L. &mdash; CIF: B22739668</p>
+            <a href="index.html" class="footer-back">&larr; Volver a la web</a>
+        </div>
+    </footer>
+
+    <!-- Form logic (visual mockup - no real submission) -->
+    <script>
+    (function() {
+        var form     = document.getElementById('registerForm');
+        var errorBox = document.getElementById('errorBox');
+        var successMsg = document.getElementById('successMsg');
+        var successEmail = document.getElementById('successEmail');
+
+        function showError(msg) {
+            errorBox.textContent = msg;
+            errorBox.classList.add('visible');
+            errorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function hideError() {
+            errorBox.classList.remove('visible');
+            errorBox.textContent = '';
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideError();
+
+            var nombre   = form.nombre.value.trim();
+            var email    = form.email.value.trim();
+            var empresa  = form.empresa.value.trim();
+            var password = form.password.value;
+            var password2= form.password2.value;
+            var privacy  = form.privacy.checked;
+
+            // Validation
+            if (!nombre) { showError('Introduce tu nombre completo.'); form.nombre.focus(); return; }
+            if (!email)  { showError('Introduce tu email corporativo.'); form.email.focus(); return; }
+            if (!empresa){ showError('Introduce el nombre de tu empresa.'); form.empresa.focus(); return; }
+            if (password.length < 8) { showError('La contrasena debe tener al menos 8 caracteres.'); form.password.focus(); return; }
+            if (password !== password2) { showError('Las contrasenas no coinciden.'); form.password2.focus(); return; }
+            if (!privacy){ showError('Debes aceptar la Politica de Privacidad para continuar.'); return; }
+
+            // CIF pattern check (optional field, but if filled must match)
+            var cif = form.cif.value.trim();
+            if (cif && !/^([A-Za-z]\d{8}|\d{8}[A-Za-z])$/.test(cif)) {
+                showError('El formato de CIF no es valido (ej: B12345678).');
+                form.cif.focus();
+                return;
+            }
+
+            // "Success" - show launch message
+            form.style.display = 'none';
+            successEmail.textContent = email;
+            successMsg.classList.add('visible');
+        });
+    })();
+    </script>
+</body>
+</html>

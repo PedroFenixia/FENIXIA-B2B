@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Precios — FENIX B2B Prospector</title>
+<meta name="description" content="Planes y precios de FENIX B2B Prospector. Accede a +1 millón de empresas del BORME, subvenciones del BOE y licitaciones públicas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0d9488;--teal-light:#14b8a6;--teal-pale:#ccfbf1;
+  --green:#059669;--emerald-grad:linear-gradient(135deg,#0d9488,#059669);
+  --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
+  --bg:#111827;--card:#1f2937;--card-border:#374151;
+  --text-primary:#f9fafb;--text-secondary:#9ca3af;--text-muted:#6b7280;
+  --gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text-primary);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ── Nav ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(17,24,39,.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(55,65,81,.5);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 24px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--text-primary);
+  font-size:15px;font-weight:500;letter-spacing:-.01em;
+}
+.nav-brand strong{font-weight:700}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{
+  color:var(--text-secondary);text-decoration:none;
+  font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:8px;
+  transition:color .2s,background .2s;
+}
+.nav-link:hover{color:var(--text-primary);background:rgba(255,255,255,.05)}
+.nav-cta{
+  background:var(--emerald-grad);
+  color:#fff;text-decoration:none;
+  font-size:14px;font-weight:600;
+  padding:9px 20px;border-radius:8px;
+  transition:opacity .2s,transform .15s;
+  box-shadow:0 1px 3px rgba(13,148,136,.3);
+}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ── Hero / Header ── */
+.pricing-header{
+  text-align:center;
+  padding:80px 24px 48px;
+  max-width:720px;margin:0 auto;
+}
+.pricing-tag{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal-light);
+  background:rgba(13,148,136,.12);
+  border:1px solid rgba(13,148,136,.25);
+  padding:6px 16px;border-radius:100px;
+  margin-bottom:24px;
+}
+.pricing-title{
+  font-size:clamp(28px,5vw,44px);
+  font-weight:800;letter-spacing:-.03em;
+  line-height:1.15;
+  color:var(--text-primary);
+  margin-bottom:16px;
+}
+.pricing-subtitle{
+  font-size:clamp(15px,2.5vw,18px);
+  color:var(--text-secondary);
+  line-height:1.6;
+  max-width:560px;margin:0 auto;
+}
+
+/* ── Pricing Grid ── */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px 64px;
+  align-items:start;
+}
+
+.pricing-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  padding:36px 32px 32px;
+  position:relative;
+  transition:transform .25s,box-shadow .25s;
+}
+.pricing-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.pricing-card.highlighted{
+  border-color:var(--teal);
+  box-shadow:0 0 0 1px var(--teal),0 8px 32px rgba(13,148,136,.15);
+}
+.pricing-card.highlighted:hover{
+  box-shadow:0 0 0 1px var(--teal),0 20px 40px rgba(13,148,136,.2);
+}
+
+.badge-popular{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--emerald-grad);
+  color:#fff;font-size:12px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  padding:5px 18px;border-radius:100px;
+  white-space:nowrap;
+  box-shadow:0 2px 8px rgba(13,148,136,.4);
+}
+
+.plan-name{
+  font-size:18px;font-weight:700;
+  color:var(--text-primary);
+  margin-bottom:8px;
+}
+.plan-price{
+  display:flex;align-items:baseline;gap:4px;
+  margin-bottom:24px;
+}
+.plan-price .amount{
+  font-size:48px;font-weight:800;
+  letter-spacing:-.04em;
+  color:var(--text-primary);
+  line-height:1;
+}
+.plan-price .currency{
+  font-size:22px;font-weight:700;
+  color:var(--text-secondary);
+}
+.plan-price .period{
+  font-size:15px;font-weight:500;
+  color:var(--text-muted);
+  margin-left:2px;
+}
+
+.plan-features{
+  list-style:none;
+  display:flex;flex-direction:column;gap:14px;
+  margin-bottom:32px;
+  padding-top:24px;
+  border-top:1px solid rgba(55,65,81,.6);
+}
+.plan-features li{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;line-height:1.5;
+}
+.plan-features li .icon{
+  flex-shrink:0;
+  width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;
+  border-radius:50%;
+}
+.plan-features li .icon.check{
+  color:var(--green);
+  background:rgba(5,150,105,.12);
+}
+.plan-features li .icon.cross{
+  color:var(--gray-600);
+  background:rgba(75,85,99,.15);
+}
+.plan-features li.disabled{
+  color:var(--text-muted);
+}
+
+.plan-btn{
+  display:block;width:100%;
+  text-align:center;text-decoration:none;
+  font-size:15px;font-weight:600;
+  padding:13px 24px;border-radius:10px;
+  transition:all .2s;
+  cursor:pointer;border:none;
+}
+.plan-btn.outline{
+  background:transparent;
+  border:1px solid var(--card-border);
+  color:var(--text-primary);
+}
+.plan-btn.outline:hover{
+  border-color:var(--text-secondary);
+  background:rgba(255,255,255,.04);
+}
+.plan-btn.primary{
+  background:var(--emerald-grad);
+  color:#fff;border:none;
+  box-shadow:0 2px 12px rgba(13,148,136,.35);
+}
+.plan-btn.primary:hover{
+  opacity:.92;
+  transform:translateY(-1px);
+  box-shadow:0 4px 20px rgba(13,148,136,.45);
+}
+
+/* ── Below Cards ── */
+.pricing-footer-info{
+  text-align:center;
+  max-width:640px;margin:0 auto;
+  padding:0 24px 24px;
+}
+.pricing-footer-info p{
+  font-size:14px;color:var(--text-muted);
+  line-height:1.7;margin-bottom:8px;
+}
+.payment-badges{
+  display:flex;align-items:center;justify-content:center;
+  gap:16px;flex-wrap:wrap;
+  margin-top:24px;padding-bottom:64px;
+}
+.payment-badges span{
+  font-family:var(--mono);
+  font-size:13px;font-weight:600;
+  color:var(--text-muted);
+  letter-spacing:.02em;
+  padding:6px 14px;
+  border:1px solid rgba(55,65,81,.5);
+  border-radius:6px;
+  background:rgba(31,41,55,.5);
+}
+
+/* ── Footer ── */
+.site-footer{
+  margin-top:auto;
+  border-top:1px solid rgba(55,65,81,.5);
+  padding:32px 24px;
+  text-align:center;
+}
+.footer-links{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.footer-links a{
+  color:var(--text-muted);text-decoration:none;
+  font-size:13px;font-weight:500;
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--text-secondary)}
+.footer-links .sep{
+  color:rgba(75,85,99,.5);font-size:11px;
+}
+.footer-copy{
+  font-size:12px;color:rgba(107,114,128,.7);
+  line-height:1.6;
+}
+
+/* ── Responsive ── */
+@media(max-width:960px){
+  .pricing-grid{
+    grid-template-columns:1fr;
+    max-width:440px;
+    gap:20px;
+  }
+  .pricing-card.highlighted{
+    order:-1;
+  }
+  .pricing-header{
+    padding:60px 20px 40px;
+  }
+}
+
+@media(max-width:600px){
+  .nav-inner{padding:0 16px;height:56px}
+  .nav-brand{font-size:13px;gap:8px}
+  .nav-brand img{height:28px !important}
+  .nav-links .nav-link{display:none}
+  .nav-links .nav-link:last-of-type{display:inline-flex}
+  .nav-cta{font-size:12px;padding:7px 14px}
+  .pricing-header{padding:48px 16px 32px}
+  .pricing-grid{padding:0 16px 48px}
+  .pricing-card{padding:28px 24px 24px}
+  .plan-price .amount{font-size:40px}
+  .payment-badges{padding:0 16px 48px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.png?v=2" alt="FENIX IA" style="height:36px;opacity:.7;filter:brightness(1.1)">
+      FENIX <strong>B2B</strong> Prospector
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="login.html" class="nav-link">Iniciar sesión</a>
+      <a href="register.html" class="nav-cta">Regístrate gratis</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Pricing Header ── -->
+<section class="pricing-header">
+  <span class="pricing-tag">Precios</span>
+  <h1 class="pricing-title">El plan perfecto para tu negocio</h1>
+  <p class="pricing-subtitle">Accede a +1 millón de empresas del BORME, subvenciones del BOE y licitaciones públicas</p>
+</section>
+
+<!-- ── Pricing Grid ── -->
+<div class="pricing-grid">
+
+  <!-- Free -->
+  <div class="pricing-card">
+    <div class="plan-name">Free</div>
+    <div class="plan-price">
+      <span class="amount">0</span>
+      <span class="currency">€</span>
+      <span class="period">/mes</span>
+    </div>
+    <ul class="plan-features">
+      <li>
+        <span class="icon check">✓</span>
+        50 búsquedas/mes
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        5 exportaciones/mes
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        10 empresas en vigilancia
+      </li>
+      <li class="disabled">
+        <span class="icon cross">✗</span>
+        Scoring de solvencia
+      </li>
+      <li class="disabled">
+        <span class="icon cross">✗</span>
+        Enriquecimiento de datos
+      </li>
+    </ul>
+    <a href="register.html" class="plan-btn outline">Empezar gratis</a>
+  </div>
+
+  <!-- Pro (Highlighted) -->
+  <div class="pricing-card highlighted">
+    <span class="badge-popular">Popular</span>
+    <div class="plan-name">Pro</div>
+    <div class="plan-price">
+      <span class="amount">29</span>
+      <span class="currency">€</span>
+      <span class="period">/mes</span>
+    </div>
+    <ul class="plan-features">
+      <li>
+        <span class="icon check">✓</span>
+        Búsquedas ilimitadas
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        50 exportaciones/mes
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        100 empresas en vigilancia
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Scoring de solvencia
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Enriquecimiento de datos
+      </li>
+    </ul>
+    <a href="register.html" class="plan-btn primary">Empezar con Pro</a>
+  </div>
+
+  <!-- Enterprise -->
+  <div class="pricing-card">
+    <div class="plan-name">Enterprise</div>
+    <div class="plan-price">
+      <span class="amount">79</span>
+      <span class="currency">€</span>
+      <span class="period">/mes</span>
+    </div>
+    <ul class="plan-features">
+      <li>
+        <span class="icon check">✓</span>
+        Búsquedas ilimitadas
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Exportaciones ilimitadas
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Watchlist ilimitada
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Scoring + Enriquecimiento
+      </li>
+      <li>
+        <span class="icon check">✓</span>
+        Acceso API
+      </li>
+    </ul>
+    <a href="register.html" class="plan-btn outline">Empezar con Enterprise</a>
+  </div>
+
+</div>
+
+<!-- ── Below Cards Info ── -->
+<div class="pricing-footer-info">
+  <p>Todos los planes incluyen acceso a +1M empresas del BORME, subvenciones y licitaciones.</p>
+  <p>Cancela cuando quieras. Sin permanencia. Pagos seguros con Stripe.</p>
+</div>
+<div class="payment-badges">
+  <span>VISA</span>
+  <span>Mastercard</span>
+  <span>SEPA</span>
+  <span>stripe</span>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://fenixia.tech">fenixia.tech</a>
+    <span class="sep">|</span>
+    <a href="#">Términos</a>
+    <span class="sep">|</span>
+    <a href="#">Privacidad</a>
+    <span class="sep">|</span>
+    <a href="#">Cookies</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 FENIXIA SOLUTIONS S.L. &mdash; Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
