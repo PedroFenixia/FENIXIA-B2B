@@ -95,17 +95,48 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.
 .hero-stats .stat .v{font-size:1.4rem;font-weight:800;font-family:var(--mono);color:var(--teal);letter-spacing:-1px}
 .hero-stats .stat .l{font-size:.65rem;color:var(--text4);text-transform:uppercase;letter-spacing:1px;margin-top:.1rem}
 
-/* HERO VISUAL */
+/* HERO VISUAL — App mockup */
 .hero-visual{position:relative}
-.browser-frame{background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden;position:relative}
-.browser-dots{display:flex;gap:6px;padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border)}
-.browser-dots span{width:10px;height:10px;border-radius:50%;background:var(--border2)}
+.browser-frame{background:#0f172a;border-radius:12px;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 40px rgba(0,0,0,.3),0 2px 8px rgba(0,0,0,.15);overflow:hidden;position:relative}
+.browser-dots{display:flex;gap:6px;padding:10px 14px;background:#0b1120;border-bottom:1px solid rgba(255,255,255,.06);align-items:center}
+.browser-dots span{width:9px;height:9px;border-radius:50%}
 .browser-dots span:first-child{background:#ff5f57}
 .browser-dots span:nth-child(2){background:#ffbd2e}
 .browser-dots span:nth-child(3){background:#28c840}
-.browser-url{flex:1;margin:0 12px;background:var(--bg);border-radius:4px;padding:3px 10px;font-size:.65rem;color:var(--text4);font-family:var(--mono);display:flex;align-items:center;gap:4px}
-.browser-url::before{content:'\1F512';font-size:.55rem}
-.browser-frame img{width:100%;display:block}
+.browser-url{flex:1;margin:0 10px;background:rgba(255,255,255,.05);border-radius:4px;padding:4px 10px;font-size:.6rem;color:rgba(255,255,255,.35);font-family:var(--mono);display:flex;align-items:center;gap:4px}
+.mock-app{padding:0}
+.mock-nav{display:flex;align-items:center;gap:1rem;padding:.5rem .8rem;background:#0b1120;border-bottom:1px solid rgba(255,255,255,.06);font-size:.58rem;color:rgba(255,255,255,.4)}
+.mock-nav strong{color:#fff;font-weight:700;font-size:.65rem}
+.mock-nav strong em{font-style:normal;color:var(--teal)}
+.mock-nav a{color:rgba(255,255,255,.35);text-decoration:none;padding:.2rem .45rem;border-radius:4px;transition:all .2s}
+.mock-nav a.active{color:#fff;background:rgba(37,99,235,.2)}
+.mock-body{padding:.8rem}
+.mock-search{display:flex;gap:.4rem;margin-bottom:.7rem}
+.mock-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:.35rem .6rem;font-size:.58rem;color:rgba(255,255,255,.5);font-family:var(--font)}
+.mock-btn{background:var(--emerald-grad);color:#fff;border:none;border-radius:6px;padding:.35rem .7rem;font-size:.55rem;font-weight:600;font-family:var(--font);cursor:default;white-space:nowrap}
+.mock-filters{display:flex;gap:.35rem;margin-bottom:.7rem;flex-wrap:wrap}
+.mock-tag{background:rgba(37,99,235,.12);color:var(--teal-light);font-size:.5rem;padding:.15rem .45rem;border-radius:4px;font-weight:500}
+.mock-results{font-size:.52rem;color:rgba(255,255,255,.3);margin-bottom:.5rem}
+.mock-table{width:100%;border-collapse:collapse}
+.mock-table th{text-align:left;font-size:.48rem;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.25);padding:.3rem .4rem;border-bottom:1px solid rgba(255,255,255,.06);font-weight:600}
+.mock-table td{padding:.4rem;font-size:.55rem;color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.04)}
+.mock-table tr:hover td{background:rgba(37,99,235,.04)}
+.mock-table .co-name{color:#fff;font-weight:600;font-size:.58rem}
+.mock-table .badge{display:inline-block;padding:.1rem .35rem;border-radius:3px;font-size:.45rem;font-weight:600}
+.badge-sl{background:rgba(37,99,235,.15);color:var(--teal-light)}
+.badge-sa{background:rgba(124,58,237,.15);color:#a78bfa}
+.mock-score{display:inline-flex;align-items:center;gap:.2rem;font-family:var(--mono);font-weight:700;font-size:.55rem}
+.score-high{color:#34d399}
+.score-mid{color:#fbbf24}
+.score-low{color:#f87171}
+.score-bar{width:28px;height:4px;border-radius:2px;background:rgba(255,255,255,.08)}
+.score-bar span{display:block;height:100%;border-radius:2px}
+.mock-cif{font-family:var(--mono);font-size:.5rem}
+.score-bar .sh{width:92%;background:#34d399}
+.score-bar .s88{width:88%;background:#34d399}
+.score-bar .s85{width:85%;background:#34d399}
+.score-bar .s74{width:74%;background:#fbbf24}
+.score-bar .s71{width:71%;background:#fbbf24}
 .floating-card{position:absolute;background:var(--card);border-radius:10px;padding:.8rem 1rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08);font-size:.75rem;animation:float-up 6s ease-in-out infinite;z-index:2}
 .floating-card.fc1{top:-12px;right:-20px;animation-delay:0s}
 .floating-card.fc2{bottom:20px;left:-30px;animation-delay:3s}
@@ -387,9 +418,40 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
       <div class="browser-frame">
         <div class="browser-dots">
           <span></span><span></span><span></span>
-          <div class="browser-url">app.fenixia.tech</div>
+          <div class="browser-url">app.fenixia.tech/empresas</div>
         </div>
-        <img src="app-preview.png" alt="FENIX B2B Prospector — Panel de la aplicaci&oacute;n" loading="lazy" width="1200" height="750">
+        <div class="mock-app">
+          <div class="mock-nav">
+            <strong>FENIX <em>B2B</em></strong>
+            <a href="#">Dashboard</a>
+            <a href="#" class="active">Empresas</a>
+            <a href="#">Oportunidades</a>
+            <a href="#">Vigilancia</a>
+          </div>
+          <div class="mock-body">
+            <div class="mock-search">
+              <div class="mock-input">Buscar empresa, CIF o sector&hellip;</div>
+              <div class="mock-btn">&#128269; Buscar</div>
+            </div>
+            <div class="mock-filters">
+              <span class="mock-tag">Madrid</span>
+              <span class="mock-tag">S.L.</span>
+              <span class="mock-tag">Score &gt; 70</span>
+              <span class="mock-tag">Constituidas &uacute;lt. 30 d&iacute;as</span>
+            </div>
+            <div class="mock-results">347 empresas encontradas &mdash; ordenado por score de solvencia</div>
+            <table class="mock-table">
+              <thead><tr><th>Empresa</th><th>CIF</th><th>Provincia</th><th>Forma</th><th>Score</th></tr></thead>
+              <tbody>
+                <tr><td class="co-name">NEXARA TECH SOLUTIONS</td><td class="mock-cif">B87654321</td><td>Madrid</td><td><span class="badge badge-sl">S.L.</span></td><td><div class="mock-score score-high">92 <div class="score-bar"><span class="sh"></span></div></div></td></tr>
+                <tr><td class="co-name">GRUPO VALTERRA INVERSIONES</td><td class="mock-cif">A12345678</td><td>Madrid</td><td><span class="badge badge-sa">S.A.</span></td><td><div class="mock-score score-high">88 <div class="score-bar"><span class="s88"></span></div></div></td></tr>
+                <tr><td class="co-name">DATAFLOW ANALYTICS IBERIA</td><td class="mock-cif">B65432198</td><td>Madrid</td><td><span class="badge badge-sl">S.L.</span></td><td><div class="mock-score score-high">85 <div class="score-bar"><span class="s85"></span></div></div></td></tr>
+                <tr><td class="co-name">CONSULTORES MERIDIAN PARTNERS</td><td class="mock-cif">B43218765</td><td>Madrid</td><td><span class="badge badge-sl">S.L.</span></td><td><div class="mock-score score-mid">74 <div class="score-bar"><span class="s74"></span></div></div></td></tr>
+                <tr><td class="co-name">SOLARIS ENERGY PROJECTS</td><td class="mock-cif">B98761234</td><td>Madrid</td><td><span class="badge badge-sl">S.L.</span></td><td><div class="mock-score score-mid">71 <div class="score-bar"><span class="s71"></span></div></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
