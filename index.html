@@ -97,17 +97,16 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.
 
 /* HERO VISUAL */
 .hero-visual{position:relative}
-.dash-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);position:relative}
-.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.dash-header span{font-size:.75rem;font-weight:600;color:var(--text4);text-transform:uppercase;letter-spacing:1px}
-.dash-header .live{display:flex;align-items:center;gap:.4rem;color:var(--green);font-size:.72rem;font-weight:600}
-.dash-header .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 1.5s infinite}
-.dash-lines{display:flex;flex-direction:column;gap:.6rem}
-.dash-line{display:flex;justify-content:space-between;align-items:center;padding:.5rem .7rem;border-radius:8px;font-size:.82rem;background:var(--bg2)}
-.dash-line .dl-label{color:var(--text3)}
-.dash-line .dl-val{font-weight:700;font-family:var(--mono);font-size:.85rem}
-.dl-val.green{color:var(--green)}.dl-val.teal{color:var(--teal)}.dl-val.red{color:var(--red)}.dl-val.purple{color:var(--purple)}.dl-val.orange{color:var(--orange)}
-.floating-card{position:absolute;background:var(--card);border-radius:10px;padding:.8rem 1rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08);font-size:.75rem;animation:float-up 6s ease-in-out infinite}
+.browser-frame{background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden;position:relative}
+.browser-dots{display:flex;gap:6px;padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.browser-dots span{width:10px;height:10px;border-radius:50%;background:var(--border2)}
+.browser-dots span:first-child{background:#ff5f57}
+.browser-dots span:nth-child(2){background:#ffbd2e}
+.browser-dots span:nth-child(3){background:#28c840}
+.browser-url{flex:1;margin:0 12px;background:var(--bg);border-radius:4px;padding:3px 10px;font-size:.65rem;color:var(--text4);font-family:var(--mono);display:flex;align-items:center;gap:4px}
+.browser-url::before{content:'\1F512';font-size:.55rem}
+.browser-frame img{width:100%;display:block}
+.floating-card{position:absolute;background:var(--card);border-radius:10px;padding:.8rem 1rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08);font-size:.75rem;animation:float-up 6s ease-in-out infinite;z-index:2}
 .floating-card.fc1{top:-12px;right:-20px;animation-delay:0s}
 .floating-card.fc2{bottom:20px;left:-30px;animation-delay:3s}
 @keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -385,18 +384,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
         <div class="fc-val purple">Score 87</div>
         <div class="fc-lbl">Solvencia media</div>
       </div>
-      <div class="dash-card">
-        <div class="dash-header">
-          <span>FENIX B2B Prospector</span>
-          <div class="live">Datos actualizados</div>
+      <div class="browser-frame">
+        <div class="browser-dots">
+          <span></span><span></span><span></span>
+          <div class="browser-url">app.fenixia.tech</div>
         </div>
-        <div class="dash-lines">
-          <div class="dash-line"><span class="dl-label">Empresas registradas</span><span class="dl-val teal">1.247.830</span></div>
-          <div class="dash-line"><span class="dl-label">Actos mercantiles</span><span class="dl-val green">3.891.204</span></div>
-          <div class="dash-line"><span class="dl-label">Subvenciones activas</span><span class="dl-val purple">342</span></div>
-          <div class="dash-line"><span class="dl-label">Licitaciones abiertas</span><span class="dl-val orange">1.287</span></div>
-          <div class="dash-line"><span class="dl-label">&Uacute;ltima actualizaci&oacute;n</span><span class="dl-val teal">Hoy</span></div>
-        </div>
+        <img src="app-preview.png" alt="FENIX B2B Prospector — Panel de la aplicaci&oacute;n" loading="lazy" width="1200" height="750">
       </div>
     </div>
   </div>
