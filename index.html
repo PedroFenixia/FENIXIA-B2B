@@ -10,7 +10,7 @@
 <meta name="keywords" content="prospecci&oacute;n B2B, BORME, registro mercantil, lead scoring, inteligencia comercial, FENIX IA, subvenciones BOE, licitaciones">
 <meta name="author" content="FENIXIA SOLUTIONS S.L.">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0d9488">
+<meta name="theme-color" content="#2563eb">
 <link rel="canonical" href="https://b2b.fenixia.tech/">
 
 <!-- Open Graph -->
@@ -34,11 +34,11 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#ffffff;--bg2:#f8fafb;--bg3:#f1f5f9;--card:#ffffff;
-  --teal:#0d9488;--teal-light:#14b8a6;--teal-pale:#ccfbf1;--teal-glow:rgba(13,148,136,.08);
+  --teal:#2563eb;--teal-light:#3b82f6;--teal-pale:#dbeafe;--teal-glow:rgba(37,99,235,.08);
   --text:#0f172a;--text2:#334155;--text3:#64748b;--text4:#94a3b8;
   --border:#e2e8f0;--border2:#cbd5e1;
   --purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;
-  --emerald-grad:linear-gradient(135deg,#0d9488,#059669);
+  --emerald-grad:linear-gradient(135deg,#2563eb,#1d4ed8);
   --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:smooth;font-size:16px}
@@ -63,8 +63,8 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;font-size:.88rem;transition:all .2s;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.1px}
-.btn-primary{background:var(--emerald-grad);color:#fff !important;box-shadow:0 1px 3px rgba(13,148,136,.2),0 4px 12px rgba(13,148,136,.12)}
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.25),0 8px 24px rgba(13,148,136,.15);color:#fff !important}
+.btn-primary{background:var(--emerald-grad);color:#fff !important;box-shadow:0 1px 3px rgba(37,99,235,.2),0 4px 12px rgba(37,99,235,.12)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(37,99,235,.25),0 8px 24px rgba(37,99,235,.15);color:#fff !important}
 .btn-outline{background:transparent;color:var(--teal);border:1.5px solid var(--border2)}
 .btn-outline:hover{border-color:var(--teal);background:var(--teal-glow)}
 
@@ -80,7 +80,7 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 2.5rem 5rem;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
-.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(13,148,136,.06) 0%,transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(37,99,235,.06) 0%,transparent 65%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-30%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.04) 0%,transparent 65%);pointer-events:none}
 .hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:100px;background:var(--teal-pale);color:var(--teal);font-size:.78rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:.3px}
@@ -125,13 +125,13 @@ section{padding:6rem 2.5rem}
 /* FEATURES GRID */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .feat-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .3s}
-.feat-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1);transform:translateY(-2px)}
+.feat-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(37,99,235,.1);transform:translateY(-2px)}
 .feat-card-top{height:3px;margin:-2rem -2rem 1.5rem;border-radius:14px 14px 0 0}
 .feat-card:nth-child(1) .feat-card-top{background:var(--emerald-grad)}
 .feat-card:nth-child(2) .feat-card-top{background:linear-gradient(90deg,var(--green),#34d399)}
 .feat-card:nth-child(3) .feat-card-top{background:linear-gradient(90deg,var(--purple),#a78bfa)}
 .feat-card:nth-child(4) .feat-card-top{background:linear-gradient(90deg,var(--orange),#fbbf24)}
-.feat-card:nth-child(5) .feat-card-top{background:linear-gradient(90deg,#0d9488,#06b6d4)}
+.feat-card:nth-child(5) .feat-card-top{background:linear-gradient(90deg,#2563eb,#3b82f6)}
 .feat-card:nth-child(6) .feat-card-top{background:linear-gradient(90deg,var(--green),var(--teal))}
 .feat-ico{font-size:1.8rem;margin-bottom:.7rem}
 .feat-name{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
@@ -149,7 +149,7 @@ section{padding:6rem 2.5rem}
 /* DATA SOURCES */
 .ds-strip{display:flex;justify-content:center;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap}
 .ds-item{text-align:center;padding:1.5rem 2rem;border-radius:12px;background:var(--card);border:1px solid var(--border);transition:all .3s;min-width:140px}
-.ds-item:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(13,148,136,.08)}
+.ds-item:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(37,99,235,.08)}
 .ds-item .di-ico{margin-bottom:.6rem;display:flex;justify-content:center;color:var(--teal)}
 .ds-item .di-name{font-size:.85rem;font-weight:700;color:var(--text)}
 .ds-item .di-desc{font-size:.68rem;color:var(--text4);margin-top:.15rem}
@@ -157,7 +157,7 @@ section{padding:6rem 2.5rem}
 /* USE CASES */
 .uc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
 .uc-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);transition:all .3s}
-.uc-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1)}
+.uc-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(37,99,235,.1)}
 .uc-card-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
 .uc-card-ico{font-size:1.6rem}
 .uc-card-sector{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);background:var(--teal-pale);padding:.2rem .6rem;border-radius:4px}
@@ -170,7 +170,7 @@ section{padding:6rem 2.5rem}
 .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .pr-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;transition:all .3s}
 .pr-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.06)}
-.pr-card.feat{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 8px 32px rgba(13,148,136,.1)}
+.pr-card.feat{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 8px 32px rgba(37,99,235,.1)}
 .pr-card.feat::before{content:'POPULAR';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--emerald-grad);color:#fff;font-size:.62rem;font-weight:700;padding:.25rem .9rem;border-radius:100px;letter-spacing:1.2px}
 .pr-name{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.4rem;color:var(--teal)}
 .pr-amt{display:flex;align-items:baseline;gap:.2rem;margin-bottom:.1rem}
@@ -211,8 +211,8 @@ section{padding:6rem 2.5rem}
 
 /* CTA */
 .cta-sec{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.15),transparent 60%);pointer-events:none}
-.cta-sec .tag{background:rgba(13,148,136,.15);color:var(--teal-light)}
+.cta-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.15),transparent 60%);pointer-events:none}
+.cta-sec .tag{background:rgba(37,99,235,.15);color:var(--teal-light)}
 .cta-sec .stitle{color:#fff}
 .cta-sec .sdesc{color:rgba(255,255,255,.6)}
 .cta-sec input,.cta-sec select{padding:.8rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-family:var(--font);font-size:.88rem;outline:none;transition:border .2s;width:100%}
@@ -662,7 +662,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
         <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar demo gratuita &rarr;</button>
         <p style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:left">Responsable: FENIXIA SOLUTIONS S.L. (CIF: B22739668). Finalidad: gestionar tu solicitud y contactarte para la demo. Base jur&iacute;dica: consentimiento del interesado (art. 6.1.a RGPD). Derechos: acceso, rectificaci&oacute;n, supresi&oacute;n, oposici&oacute;n, portabilidad y limitaci&oacute;n escribiendo a <a href="mailto:privacidad@fenixia.tech" style="color:rgba(255,255,255,.5)">privacidad@fenixia.tech</a>. M&aacute;s info en <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:rgba(255,255,255,.5)">Pol&iacute;tica de Privacidad</a></p>
       </form>
-      <div id="ok" style="display:none;padding:1.8rem;background:rgba(13,148,136,.1);border-radius:10px;border:1px solid rgba(13,148,136,.2);max-width:460px;margin:1rem auto 0">
+      <div id="ok" style="display:none;padding:1.8rem;background:rgba(37,99,235,.1);border-radius:10px;border:1px solid rgba(37,99,235,.2);max-width:460px;margin:1rem auto 0">
         <p style="font-size:1.2rem;font-weight:700;color:var(--teal-light);margin-bottom:.4rem">&#10003; Recibido</p>
         <p style="color:rgba(255,255,255,.7);font-size:.92rem">Te contactaremos en menos de 24 horas para agendar tu demo</p>
       </div>
