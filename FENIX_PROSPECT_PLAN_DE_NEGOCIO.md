@@ -3,7 +3,7 @@
 **Fecha:** Febrero 2026
 **Empresa:** FENIXIA SOLUTIONS S.L. (CIF: B22739668)
 **Producto:** FENIX Prospect — Plataforma B2B SaaS de Prospección Inteligente con IA
-**Dominio:** fenixia360.com/prospect | fenixia.tech
+**Dominio:** b2b.fenixia.tech
 
 ---
 
