@@ -336,11 +336,119 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 |-----------|--------|
 | **Coexistencia, no confrontación** | LibreBOR sirve a investigadores y periodistas; FENIX sirve a equipos comerciales. Los targets apenas se solapan |
 | **Diferenciación por valor añadido** | FENIX no compite en datos crudos BORME (LibreBOR tiene más historial). FENIX compite en lo que hace con esos datos: scoring, enriquecimiento, alertas, IA, CRM |
-| **Complementariedad posible** | Evaluar integrar la API de LibreBOR como fuente de datos históricos, enriqueciendo la base propia con los 6M+ registros de LibreBOR |
+| **Complementariedad posible** | Integrar la API de LibreBOR como fuente de datos históricos (ver sección 4.3) |
 | **SEO diferenciado** | LibreBOR domina "consultar BORME", "empresas registro mercantil". FENIX debe posicionarse en "prospección comercial", "encontrar clientes", "lead scoring empresas" |
 | **Motor de IA como barrera** | LibreBOR no puede añadir IA de comunicaciones ni análisis multicanal fácilmente. Es la mayor barrera competitiva de FENIX |
 
-### 4.2 Ventajas competitivas
+### 4.3 Evaluación de integración: API de LibreBOR como fuente de datos
+
+#### Contexto: fuentes de datos mercantiles disponibles
+
+| Fuente | Tipo | Coste | Datos disponibles | Acceso |
+|--------|------|-------|-------------------|--------|
+| **API BORME (BOE)** | REST/XML | Gratis | Sumarios diarios del BORME (actos publicados) | Abierto, sin autenticación |
+| **LibreBOR API** | REST/JSON | De pago (por volumen) | 6M+ registros procesados: empresas, personas, cargos, actos, NIF | API Key (Basic Auth) |
+| **Sede Registradores (CORPME)** | SOAP | De pago + contrato | Notas simples, certificaciones, cuentas anuales | Contrato bilateral, alto volumen |
+| **Registro Mercantil Central (rmc.es)** | Web (sin API pública) | Por consulta | Denominaciones sociales, certificaciones | Manual o scraping |
+
+**Nota:** El Registro Mercantil Central (rmc.es) **no dispone de API pública**. Los datos mercantiles solo están disponibles programáticamente a través de: (1) la API gratuita del BORME/BOE para actos diarios, (2) la API comercial de LibreBOR para datos procesados, o (3) contratos SOAP con la Sede Electrónica de Registradores para notas simples y cuentas anuales.
+
+#### API de LibreBOR: especificaciones técnicas
+
+| Aspecto | Detalle |
+|---------|---------|
+| **URL producción** | `https://api.librebor.me/v2/` |
+| **URL sandbox (gratis)** | `https://sandbox-api.librebor.me/v2/` |
+| **Protocolo** | REST sobre HTTPS exclusivamente |
+| **Formato respuesta** | JSON |
+| **Autenticación** | HTTP Basic Auth (API_USER + API_TOKEN) |
+| **Especificación** | OpenAPI/Swagger disponible en `docs.librebor.me/swagger/` |
+| **Rate limiting** | Por plan (consultas/min y consultas/hora) |
+| **SDKs** | Ejemplos en Python (requests) y PHP (curl) |
+| **Conector Microsoft** | Power Automate / Power Apps (Independent Publisher) |
+
+#### Endpoints disponibles (7 operaciones)
+
+| Endpoint | Método | Descripción |
+|----------|--------|-------------|
+| `company/search/` | GET | Buscar empresas por nombre (paginado, 200 resultados/página, filtro por provincia) |
+| `company/by-nif/{nif}/` | GET | Obtener empresa por NIF/CIF |
+| `company/by-slug/{slug}/` | GET | Obtener empresa por slug |
+| `company/incorporation/by-slug/{slug}/` | GET | Datos de constitución de una empresa |
+| `person/search/` | GET | Buscar personas por nombre (paginado, filtro por provincia) |
+| `person/by-slug/{slug}/` | GET | Datos completos de una persona |
+| `nif/{nif}/` | GET | Validar NIF e inferir tipo de sociedad, provincia, forma jurídica |
+
+Adicionalmente: alertas/monitorización de empresas por email y solicitud de cuentas anuales (balance, P&L, patrimonio).
+
+#### Datos disponibles por empresa (campo `Company`)
+
+Nombre, slug, NIF/CIF, estado (activa/disuelta/extinguida), provincia, dirección, objeto social, capital social, fecha de constitución, fecha de disolución/extinción, cargos activos e inactivos (con roles y fechas), actos mercantiles (nombramientos, ceses, ampliaciones, etc.), anuncios BORME y referencias a publicaciones oficiales.
+
+#### Datos disponibles por persona (campo `Person`)
+
+Nombre, slug, provincia, posiciones activas e inactivas en empresas (con rol, fecha inicio/fin), actos mercantiles asociados y referencias BORME.
+
+#### Modelo de precios de LibreBOR
+
+LibreBOR API opera con un modelo de **pago por volumen**, sin permanencia:
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Sandbox** | Gratuito — solo para desarrollo/testing |
+| **Pack de entrada** | 100 consultas, compra directa desde dashboard |
+| **Suscripciones** | Mensuales, basadas en volumen de consultas |
+| **Permanencia** | Ninguna (mes a mes) |
+| **Pago** | Stripe (VISA, Mastercard) |
+| **Descuentos** | Por alto volumen |
+| **ONGs** | Tarifas especiales |
+| **Estado** | Beta — tarifas en fase de definición |
+
+**Estimación de costes** (basada en APIs similares como Axesor, eInforma):
+
+| Volumen | Coste estimado |
+|---------|---------------|
+| Pack 100 consultas (puntual) | ~€15-30 |
+| ~1.000 consultas/mes | ~€50-100/mes |
+| ~10.000 consultas/mes | ~€200-400/mes |
+| Carga masiva histórica (6M registros) | Negociación directa |
+
+#### Estrategia de integración recomendada
+
+**Opción recomendada: carga inicial + ingesta propia continua**
+
+| Fase | Acción | Coste | Beneficio |
+|------|--------|-------|-----------|
+| **1. Carga histórica** | Usar API de LibreBOR para importar registros 2009-2026 (6M+ empresas y personas) | Pago puntual (negociar pack masivo) | Arrancar con 15 años de datos históricos vs empezar de cero |
+| **2. Cruce por NIF** | Enriquecer base propia con NIF/CIF de LibreBOR para validación y deduplicación | Incluido en la carga | Base de datos limpia y validada |
+| **3. Ingesta continua propia** | Mantener ingesta diaria del BORME/BOE (ya implementada, ~2.200 empresas/día) | Gratis (API BOE) | Sin coste recurrente de LibreBOR |
+| **4. Consultas puntuales** | Usar API de LibreBOR solo para datos históricos que no estén en la base propia | Pack bajo (~€50-100/mes) | Complementar sin duplicar |
+
+**Ventajas de esta estrategia:**
+- Se obtienen 15 años de datos históricos sin tener que parsear los BORMEs antiguos
+- La ingesta diaria propia (ya desarrollada) evita dependencia recurrente de LibreBOR
+- El coste se concentra en el arranque, no en mensualidades altas
+- Se pueden cruzar los NIF/CIF de LibreBOR con los datos propios para enriquecimiento
+
+**Riesgos a considerar:**
+- LibreBOR está en beta — los precios podrían cambiar
+- La carga masiva puede requerir negociación directa y acuerdo contractual
+- Los datos de LibreBOR solo cubren BORME (no licitaciones, subvenciones ni judiciales)
+- No incluyen datos de contacto (email, teléfono, web) — hay que seguir enriqueciendo por otras vías
+
+#### Impacto en el plan financiero
+
+| Concepto | Sin LibreBOR | Con LibreBOR |
+|----------|-------------|-------------|
+| Datos históricos al lanzamiento | ~0 (solo ingesta propia desde MVP) | 6M+ registros desde 2009 |
+| Tiempo para 1M de registros | ~18 meses de ingesta | Inmediato |
+| Coste de arranque adicional | €0 | €500-2.000 (estimación carga masiva) |
+| Coste recurrente adicional | €0 | €50-100/mes (consultas puntuales) |
+| Propuesta de valor al usuario | "Datos de empresas nuevas" | "15 años de histórico mercantil + datos nuevos diarios" |
+
+**Conclusión:** La integración con LibreBOR como fuente de carga inicial es altamente recomendable. Por un coste estimado de €500-2.000 (puntual) + €50-100/mes (recurrente), FENIX Prospect arrancaría con una base de datos de 6M+ registros históricos que de otra forma tardaría años en construir. Esto fortalece la propuesta de valor frente a competidores y justifica un posicionamiento premium.
+
+### 4.4 Ventajas competitivas
 
 | Ventaja | Detalle |
 |---------|---------|
@@ -353,7 +461,7 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 | **100% en español** | Producto, datos, soporte y onboarding en español |
 | **RGPD nativo** | Datos alojados en la UE, AES-256 |
 
-### 4.3 Matriz DAFO
+### 4.5 Matriz DAFO
 
 | | Positivo | Negativo |
 |---|---|---|
@@ -385,8 +493,9 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 | APIs de IA (transcripción, NLP, scoring) | €1.800 | €21.600 |
 | APIs de canales (WhatsApp Business, etc.) | €600 | €7.200 |
 | APIs de enriquecimiento (APIEmpresas, etc.) | €300 | €3.600 |
+| API LibreBOR (carga histórica Año 1 + consultas) | €200 | €2.400 |
 | Herramientas internas (Stripe, email, monitoring) | €400 | €4.800 |
-| **Total infraestructura** | **€4.300** | **€51.600** |
+| **Total infraestructura** | **€4.500** | **€54.000** |
 
 #### Costes de personal (Año 1)
 
@@ -414,11 +523,11 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 
 | Categoría | Año 1 (mes) | Año 2 (mes) | Año 3 (mes) |
 |-----------|-------------|-------------|-------------|
-| Infraestructura | €4.300 | €8.000 | €15.000 |
+| Infraestructura (incl. LibreBOR) | €4.500 | €8.100 | €15.100 |
 | Personal | €15.200 | €28.000 | €48.000 |
 | Marketing | €3.900 | €7.000 | €12.000 |
 | Otros | €1.000 | €1.500 | €2.500 |
-| **Total** | **€24.400** | **€44.500** | **€77.500** |
+| **Total** | **€24.600** | **€44.600** | **€77.600** |
 
 ### 5.2 Proyección de ingresos
 
@@ -446,19 +555,19 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 | Concepto | Año 1 | Año 2 | Año 3 |
 |----------|-------|-------|-------|
 | **Ingresos totales** | €228.000 | €720.000 | €1.890.000 |
-| Costes infraestructura | -€51.600 | -€96.000 | -€180.000 |
+| Costes infraestructura (incl. LibreBOR) | -€54.000 | -€97.200 | -€181.200 |
 | Costes personal | -€182.400 | -€336.000 | -€576.000 |
 | Costes marketing | -€46.800 | -€84.000 | -€144.000 |
 | Otros gastos | -€12.000 | -€18.000 | -€30.000 |
-| **Total gastos** | **-€292.800** | **-€534.000** | **-€930.000** |
-| **EBITDA** | **-€64.800** | **€186.000** | **€960.000** |
-| **Margen EBITDA** | -28% | 26% | 51% |
+| **Total gastos** | **-€295.200** | **-€535.200** | **-€931.200** |
+| **EBITDA** | **-€67.200** | **€184.800** | **€958.800** |
+| **Margen EBITDA** | -29% | 26% | 51% |
 
 ### 5.4 Punto de equilibrio
 
 | Variable | Valor |
 |----------|-------|
-| Costes fijos mensuales (Año 1) | ~€24.400 |
+| Costes fijos mensuales (Año 1) | ~€24.600 |
 | Margen bruto por cliente | ~€75/mes (79% gross margin) |
 | **Clientes para break-even** | **~325** |
 | **Mes estimado de break-even** | **Mes 16-20** |
@@ -604,7 +713,7 @@ FENIX Prospect tiene una ventaja SEO natural: los datos del BORME generan conten
 
 | Trimestre | Hitos |
 |-----------|-------|
-| **Q1 2026** | MVP con BORME + búsqueda + exportación + freemium. Primeros 50 usuarios |
+| **Q1 2026** | MVP con BORME + búsqueda + exportación + freemium. Carga histórica vía API LibreBOR (6M+ registros). Primeros 50 usuarios |
 | **Q2 2026** | Motor de señales IA en comunicaciones (3 canales). Integraciones CRM. Scoring de solvencia |
 | **Q3 2026** | 5 canales completos. Pipeline predictivo. Licitaciones + subvenciones. 120 clientes |
 | **Q4 2026** | API pública v1. Alertas de seguimiento avanzadas. Exportaciones Excel. 200 clientes |
@@ -706,4 +815,4 @@ FENIX Prospect tiene una ventaja SEO natural: los datos del BORME generan conten
 
 ---
 
-*Documento generado el 17 de febrero de 2026. Datos basados en información del producto, registros públicos y estimaciones de mercado. Las proyecciones financieras son estimaciones sujetas a variaciones según condiciones de mercado.*
+*Documento generado el 18 de febrero de 2026. Actualizado con evaluación de integración API LibreBOR. Datos basados en información del producto, registros públicos y estimaciones de mercado. Las proyecciones financieras son estimaciones sujetas a variaciones según condiciones de mercado.*
