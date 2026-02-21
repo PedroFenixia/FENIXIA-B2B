@@ -2,8 +2,8 @@
 
 **Fecha:** Febrero 2026
 **Empresa:** FENIXIA SOLUTIONS S.L. (CIF: B22739668)
-**Producto:** FENIX Prospect — Plataforma B2B SaaS de Prospección Inteligente con IA
-**Dominio:** b2b.fenixia.tech
+**Producto:** FENIX Prospect — Plataforma B2B SaaS de Prospección Inteligente con Datos Públicos
+**Dominio:** prospector.fenixia.tech
 
 ---
 
@@ -24,30 +24,22 @@
 
 ### Problema
 
-Las PYMEs españolas pierden oportunidades de venta cada día por dos motivos:
-
-1. **Señales de compra invisibles**: en las comunicaciones diarias (llamadas, emails, WhatsApp) los clientes dejan pistas de compra — "estamos valorando opciones", "necesitamos algo para marzo", "acabamos de comprar un segundo local" — que el equipo comercial no detecta porque no tiene tiempo ni herramientas para analizar cientos de interacciones.
-
-2. **Prospección ciega**: cuando buscan nuevos clientes, las PYMEs dependen de bases de datos desactualizadas, llamadas en frío o intuición. No tienen acceso automatizado a datos públicos como nuevas constituciones de empresas (BORME), licitaciones públicas (PLACSP) o subvenciones (BOE).
+Las PYMEs españolas pierden oportunidades de venta cada día porque hacen **prospección ciega**: dependen de bases de datos desactualizadas, llamadas en frío o intuición. No tienen acceso automatizado a datos públicos como nuevas constituciones de empresas (BORME), licitaciones públicas (PLACSP) o subvenciones (BOE).
 
 ### Solución
 
-**FENIX Prospect** es una plataforma de prospección inteligente con dos motores complementarios:
+**FENIX Prospect** es una plataforma de prospección inteligente basada en inteligencia de registros públicos:
 
-**Motor 1 — Señales de compra en comunicaciones (IA)**
-- Analiza las comunicaciones existentes de la empresa (llamadas, email, WhatsApp, Telegram, Meta)
-- Detecta automáticamente señales de compra, intención de cambio de proveedor, nuevas necesidades y reactivación de leads
-- Genera un pipeline predictivo con lead scoring basado en datos reales de interacción
-
-**Motor 2 — Inteligencia de registros públicos (Data)**
 - Ingesta diaria automatizada del BORME (nuevas empresas, cambios societarios, nombramientos)
 - Monitorización de licitaciones públicas (PLACSP) y subvenciones (BOE)
 - Scoring de solvencia basado en actos mercantiles y avisos judiciales
 - Enriquecimiento de datos (CIF, contacto web, sector CNAE)
+- Lead scoring basado en señales mercantiles reales
+- Alertas de oportunidad y lista de seguimiento de empresas
 
 ### Propuesta de valor única
 
-**La única herramienta en España que combina prospección basada en IA sobre comunicaciones existentes + inteligencia de registros públicos, para que las PYMEs encuentren oportunidades de venta tanto en sus clientes actuales como en nuevas empresas del mercado.**
+**La única herramienta en España que convierte datos públicos (BORME, licitaciones, subvenciones) en oportunidades comerciales accionables para PYMEs, con scoring de solvencia, enriquecimiento automático e integración CRM.**
 
 ### Métricas objetivo (Año 1-3)
 
@@ -71,39 +63,32 @@ Las PYMEs españolas pierden oportunidades de venta cada día por dos motivos:
 #### Prospect Starter — €59/mes
 Para autónomos y equipos pequeños que empiezan con prospección inteligente:
 - 1 usuario
-- Detección de señales de compra en comunicaciones
+- 50 búsquedas/mes en registros públicos
 - Lead scoring básico
 - Alertas por email
-- 3 canales (llamadas, email, WhatsApp)
 - Panel de oportunidades
-- 50 búsquedas/mes en registros públicos
 - 5 exportaciones/mes
 - 10 empresas en lista de seguimiento
 
 #### Prospect Pro — €99/mes ★ RECOMENDADO
 Para equipos comerciales que quieren el máximo de oportunidades:
 - Hasta 3 usuarios
-- Comunicaciones ilimitadas
-- 5 canales completos (llamadas, email, WhatsApp, Telegram, Meta)
-- Lead scoring avanzado con IA
-- Pipeline predictivo
-- Integración CRM nativa (Salesforce, HubSpot, Pipedrive, Holded, Zoho)
-- Alertas en tiempo real
 - Búsquedas ilimitadas en registros públicos
-- 50 exportaciones/mes
-- 100 empresas en lista de seguimiento
+- Lead scoring avanzado
 - Scoring de solvencia
 - Enriquecimiento CIF y web
+- Integración CRM nativa (Salesforce, HubSpot, Pipedrive, Holded, Zoho)
+- Alertas en tiempo real
+- 50 exportaciones/mes
+- 100 empresas en lista de seguimiento
 
-#### Prospect + 360 — €149/mes
-Para empresas que quieren prospección + gestión completa de comunicaciones:
+#### Prospect Enterprise — €149/mes
+Para empresas con necesidades avanzadas de datos y prospección:
 - Hasta 5 usuarios
 - Todo de Prospect Pro
-- FENIX 360 incluido (Hub unificado + Analítica completa)
-- Reactivación automática de leads
-- Upsell y venta cruzada con IA
 - Exportaciones ilimitadas
 - Empresas ilimitadas en lista de seguimiento
+- API de acceso a datos
 - Onboarding personalizado
 - Soporte prioritario
 
@@ -112,9 +97,9 @@ Para empresas que quieren prospección + gestión completa de comunicaciones:
 | Fuente | Tipo | % estimado |
 |--------|------|-----------|
 | Suscripciones mensuales/anuales | Recurrente | 80% |
-| Upselling (Starter→Pro, Pro→360) | Recurrente | 10% |
+| Upselling (Starter→Pro, Pro→Enterprise) | Recurrente | 10% |
 | API para integradores / marca blanca | Recurrente | 5% |
-| Onboarding personalizado (plan 360) | Único | 5% |
+| Onboarding personalizado (plan Enterprise) | Único | 5% |
 
 ### 2.4 Modelo freemium como motor de adquisición
 
@@ -124,9 +109,8 @@ Para empresas que quieren prospección + gestión completa de comunicaciones:
 | Exportaciones | 5/mes |
 | Lista de seguimiento | 10 empresas |
 | Sin scoring ni enriquecimiento | — |
-| Sin análisis de comunicaciones | — |
 
-El tier gratuito permite que el prospect pruebe la base de datos de registros públicos, vea el valor de los datos y convierta a plan de pago para desbloquear IA, scoring y comunicaciones.
+El tier gratuito permite que el prospect pruebe la base de datos de registros públicos, vea el valor de los datos y convierta a plan de pago para desbloquear scoring, enriquecimiento y alertas avanzadas.
 
 ### 2.5 Unit Economics objetivo
 
@@ -151,8 +135,8 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 |----------|-------------------|------|-----------------|
 | Sales Intelligence | ~$4.000M | 12-15% | ~$7.500M |
 | Lead Generation Software | ~$2.500M | 17-20% | ~$5.500M |
-| Conversation Intelligence | ~$1.600M | 20-23% | ~$4.200M |
-| **Intersección relevante** | ~$1.200M | ~18% | ~$2.700M |
+| Business Data & Company Intelligence | ~$3.000M | 14-17% | ~$6.000M |
+| **Intersección relevante** | ~$1.200M | ~16% | ~$2.500M |
 
 #### TAM / SAM / SOM para España
 
@@ -190,9 +174,9 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 
 2. **Datos públicos como ventaja competitiva**: El BORME publica ~2.200 nuevas empresas/día. Las licitaciones públicas mueven ~200.000M€/año en España. La mayoría de PYMEs no tienen acceso estructurado a estos datos.
 
-3. **De outbound frío a señales calientes**: El mercado se mueve de llamadas en frío (2% conversión) a prospección basada en señales (15-25% conversión). Las empresas quieren contactar a quien ya muestra interés.
+3. **De outbound frío a señales calientes**: El mercado se mueve de llamadas en frío (2% conversión) a prospección basada en señales mercantiles (15-25% conversión). Las empresas quieren contactar a quien tiene una necesidad real y demostrable.
 
-4. **Consolidación de herramientas de venta**: Los equipos comerciales pasan de 5-7 herramientas separadas a plataformas todo-en-uno que cubren prospección, comunicación y CRM.
+4. **Consolidación de herramientas de venta**: Los equipos comerciales pasan de 5-7 herramientas separadas a plataformas todo-en-uno que cubren prospección, datos y CRM.
 
 ### 3.4 Perfil del buyer persona
 
@@ -223,39 +207,30 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 
 ### 4.1 Mapa competitivo
 
-#### Competidores en prospección IA (señales en comunicaciones)
-
-| Competidor | Precio/user/mes | Cobertura | Target | Fortalezas | Debilidades |
-|-----------|----------------|-----------|--------|-----------|------------|
-| **Gong** | ~275€ | Llamadas, Email | Enterprise | IA líder, revenue intelligence | Precio prohibitivo, sin WhatsApp |
-| **Salesloft** | ~125€ | Llamadas, Email | Mid-market | Secuencias + analytics | No cubre messaging, no español |
-| **Chorus (ZoomInfo)** | ~150€ | Llamadas, Video | Enterprise | IA conversacional | Ecosistema ZoomInfo caro |
-| **HubSpot CI** | ~90€ add-on | Llamadas | Mid-market | Ecosistema HubSpot | Solo dentro de HubSpot |
-
 #### Competidores en inteligencia de registros públicos (España)
 
 | Competidor | Precio | Datos | Target | Fortalezas | Debilidades |
 |-----------|--------|-------|--------|-----------|------------|
-| **LibreBOR** | Freemium + planes de pago | BORME (6M+ registros), actos, cargos | Periodistas, abogados, investigadores, PYMEs | Open source, 10 años de historial, API, BD enorme | Sin IA, sin comunicaciones, sin licitaciones, sin scoring comercial |
+| **LibreBOR** | Freemium + planes de pago | BORME (6M+ registros), actos, cargos | Periodistas, abogados, investigadores, PYMEs | Open source, 10 años de historial, API, BD enorme | Sin licitaciones, sin scoring comercial, sin enriquecimiento |
 | **Axesor (Informa D&B)** | Desde €200/mes | BORME, financieros, scoring | Empresas medianas | Datos exhaustivos, marca conocida | Caro, interfaz antigua, sin IA |
-| **eInforma** | Desde €100/mes | BORME, crédito | PYMEs | Informes de crédito | Sin prospección activa, sin comunicaciones |
+| **eInforma** | Desde €100/mes | BORME, crédito | PYMEs | Informes de crédito | Sin prospección activa, sin licitaciones |
 | **Infocif** | Freemium | CIF, datos básicos | Todos | Gratis para datos básicos | Datos limitados, sin scoring avanzado |
 | **Empresia** | Freemium | BORME básico | Pequeños | Sencillo | Datos muy básicos, sin enriquecimiento |
 | **Licitia / TenderTool** | Desde €50/mes | Licitaciones | PYMEs | Licitaciones bien cubiertas | Solo licitaciones, sin BORME |
-| **LinkedIn Sales Nav.** | ~80€ | Profesionales | Todos | Red enorme | No tiene datos mercantiles, no comunicaciones |
+| **LinkedIn Sales Nav.** | ~80€ | Profesionales | Todos | Red enorme | No tiene datos mercantiles españoles |
 
 #### Posicionamiento de FENIX Prospect
 
-| Competidor | Señales IA en comunicaciones | Registros públicos (BORME) | Licitaciones | Lead scoring | Multicanal (5ch) | Scoring solvencia | Precio PYME |
-|-----------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Gong | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| LibreBOR | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| Axesor | ✗ | ✓ | ✗ | ✓ | ✗ | ✓ | ✗ |
-| LinkedIn Sales Nav | ✗ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ |
-| Licitia | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✓ |
-| **FENIX Prospect** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| Competidor | BORME | Licitaciones | Subvenciones | Lead scoring | Scoring solvencia | Enriquecimiento | Alertas | CRM | Precio PYME |
+|-----------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| LibreBOR | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| Axesor | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
+| eInforma | ✓ | ✗ | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✓ |
+| Licitia | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✗ | ✓ |
+| LinkedIn Sales Nav | ✗ | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
+| **FENIX Prospect** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
 
-**FENIX Prospect es la única plataforma que combina ambos mundos.**
+**FENIX Prospect es la única plataforma que integra BORME + licitaciones + subvenciones con scoring, enriquecimiento y CRM en una sola herramienta.**
 
 ### 4.2 Análisis detallado: LibreBOR como competidor directo
 
@@ -291,10 +266,7 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 | **Enriquecimiento de datos** | ✗ | ✓ CIF automático (APIEmpresas), web scraping (email, teléfono) |
 | **Exportación CSV/Excel** | Limitado (según plan) | ✓ Con 12+ campos, según plan |
 | **Lista de seguimiento + alertas** | ✗ | ✓ Watchlist con alertas de actividad en tiempo real |
-| **Análisis IA de comunicaciones** | ✗ | ✓ 5 canales: llamadas, email, WhatsApp, Telegram, Meta |
-| **Detección de señales de compra** | ✗ | ✓ IA extrae intenciones de compra de comunicaciones |
-| **Lead scoring** | ✗ | ✓ Basado en actividad real + datos mercantiles |
-| **Pipeline predictivo** | ✗ | ✓ Embudo con predicción de cierre |
+| **Lead scoring** | ✗ | ✓ Basado en señales mercantiles + datos públicos |
 | **Integración CRM** | ✗ (solo API genérica) | ✓ Nativa: Salesforce, HubSpot, Pipedrive, Holded, Zoho |
 | **API** | ✓ REST con planes de pago | ✓ REST con documentación completa |
 | **Open source** | ✓ AGPL v3 | ✗ SaaS propietario |
@@ -314,7 +286,7 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 
 #### Debilidades de LibreBOR que FENIX explota
 
-1. **Solo datos BORME**: LibreBOR es un buscador de datos mercantiles. No analiza comunicaciones, no detecta señales de compra, no tiene IA. Es una herramienta de consulta, no de prospección activa.
+1. **Solo datos BORME**: LibreBOR es un buscador de datos mercantiles. Es una herramienta de consulta, no de prospección activa.
 
 2. **Sin licitaciones ni subvenciones**: No cubre PLACSP ni BOE Sección V.B. Las oportunidades del sector público quedan fuera.
 
@@ -335,10 +307,10 @@ LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos B
 | Estrategia | Acción |
 |-----------|--------|
 | **Coexistencia, no confrontación** | LibreBOR sirve a investigadores y periodistas; FENIX sirve a equipos comerciales. Los targets apenas se solapan |
-| **Diferenciación por valor añadido** | FENIX no compite en datos crudos BORME (LibreBOR tiene más historial). FENIX compite en lo que hace con esos datos: scoring, enriquecimiento, alertas, IA, CRM |
+| **Diferenciación por valor añadido** | FENIX no compite en datos crudos BORME (LibreBOR tiene más historial). FENIX compite en lo que hace con esos datos: scoring, enriquecimiento, alertas, licitaciones, CRM |
 | **Complementariedad posible** | Integrar la API de LibreBOR como fuente de datos históricos (ver sección 4.3) |
 | **SEO diferenciado** | LibreBOR domina "consultar BORME", "empresas registro mercantil". FENIX debe posicionarse en "prospección comercial", "encontrar clientes", "lead scoring empresas" |
-| **Motor de IA como barrera** | LibreBOR no puede añadir IA de comunicaciones ni análisis multicanal fácilmente. Es la mayor barrera competitiva de FENIX |
+| **Datos integrados como barrera** | LibreBOR no cubre licitaciones, subvenciones ni scoring. FENIX integra todas las fuentes públicas en una sola plataforma comercial |
 
 ### 4.3 Evaluación de integración: API de LibreBOR como fuente de datos
 
